@@ -130,7 +130,7 @@ const page = () => {
         </motion.h1>
 
         <div className="md:px-20 ">
-          <div className="w-screen h-screen relative items-center flex justify-center bg-circularMobile md:bg-circularLight rounded-full">
+          <div className="w-full h-screen relative items-center flex justify-center bg-circularMobile md:bg-circularLight rounded-full">
             <motion.div className="bg-primaryDark font-semibold md:p-4 absolute text-dark text-xl rounded-full flex items-center justify-center">
               Web
             </motion.div>

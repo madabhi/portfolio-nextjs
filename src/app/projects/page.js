@@ -32,7 +32,7 @@ const Projects = () => {
   return (
     <>
       <div
-        className={` ${mont.variable} font-mont flex-grow-1 parent flex md:px-32 justify-center w-full min-h-full  flex-col mb-20 p-4 md:p-0`}
+        className={` ${mont.variable} font-mont flex-grow-1 parent flex md:px-32 justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
       >
         <div className="flex justify-center">
           <motion.h1
@@ -44,7 +44,7 @@ const Projects = () => {
             {heading.split(" ").map((word, index) => (
               <motion.span
                 key={word + " " + index}
-                className="md:text-[100px] text-[3rem] font-[700] text-dark text-center inline-block "
+                className="md:text-[100px] text-[2rem] font-[700] text-dark text-center inline-block "
                 variants={wordAnimation}
                 initial="initial"
                 animate="animate"
