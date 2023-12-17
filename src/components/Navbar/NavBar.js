@@ -1,41 +1,132 @@
-"use client"
-import Link from 'next/link'
-import React from 'react'
-import Logo from '../Logo/Logo'
-import { useRouter } from 'next/navigation'
-import { InstaIcon, GithubIcon, LinkedinIcon } from '../Icons/Icons'
-import { motion } from 'framer-motion'
+"use client";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  InstaIcon,
+  GithubIcon,
+  LinkedinIcon,
+} from "../../components/Icons/Icons";
 
-const MeriLink = ({ href, title, className = "" }) => {
-    const router = useRouter()
+const NavBar= () => {
+  const [state, setState] = useState(false);
 
-    return (
-        <Link href={href} className={`${className} relative group`}>
-            {title}
+  // Replace javascript:void(0) paths with your paths
+  const navigation = [
+    { title: "Home", path: "/" },
+    { title: "About", path: "/about" },
+    { title: "Projects", path: "/projects" },
+    { title: "Testing", path: "/testing" },
+  ];
 
-            <span className={`h-[1px] inline-block bg-dark absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 ${router.asPath === href ? 'w-full' : 'w-0'}`}>&nbsp;</span>
-        </Link>
-    )
-}
+  useEffect(() => {
+    document.onclick = (e) => {
+      const target = e.target;
+      if (!target.closest(".menu-btn")) setState(false);
+    };
+  }, []);
 
-const NavBar = () => {
-    return (
-        <header className='w-full px-32 font-medium flex items-center  justify-between'>
-            <nav>
-                < MeriLink href='/' className='mr-4' title="Home" />
-                < MeriLink href='/about' className='mx-4' title="About" />
-                < MeriLink href='/projects' className='mx-4' title="Projects" />
-                < MeriLink href='/articles' className='ml-4' title="Articles" />
-            </nav>
-            <h2>
-                <Logo /></h2>
-            <nav className='flex flex-wrap'>
-                <motion.a href='https://instagram.com/alphaabhi.in' target={"_blank"} whileHover={{ y: -2}} whileTap={{scale:.8}}  className='mr-2' > <InstaIcon className="h-8 " /></motion.a>
-                <motion.a href='https://github.com/madabhi' target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: .8 }} className='mx-2' ><GithubIcon className="h-8 " /> </motion.a>
-                <motion.a href='https://linkedin.com/in/madabhi' target={"_blank"} whileHover={{ y: -2 }} whileTap={{ scale: .8 }} className='ml-2' ><LinkedinIcon className="h-8 " /> </motion.a>
-            </nav>
-        </header>
-    )
-}
+  return (
+    <nav
+      className={`bg-white pb-5 md:text-sm ${
+        state
+          ? "shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-2 md:mt-0"
+          : ""
+      }`}
+    >
+      <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
+        <div className="flex items-center justify-between py-5 md:block">
+          <Link href="/">
+            <h1 className="font-bold text-2xl">Abhinav</h1>
+          </Link>
+          <div className="md:hidden">
+            <button
+              className="menu-btn text-gray-500 hover:text-gray-800"
+              onClick={() => setState(!state)}
+            >
+              {state ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+        <div
+          className={`flex-1 items-center mt-8 md:mt-0 md:flex justify-between ${
+            state ? "block" : "hidden" // 
+          } `}
+        >
+          <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+            {navigation.map((item, idx) => {
+              return (
+                <li key={idx} className="text-gray-700 hover:text-gray-900">
+                  <Link href={item.path} className="block" onClick={()=>{setState(false)}} >
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="flex justify-center items-center mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
+            <motion.a
+              href="https://instagram.com/alphaabhi.in"
+              target={"_blank"}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.8 }}
+              className="flex items-center"
+            >
+              {" "}
+              <InstaIcon className="h-8 w-8" />
+            </motion.a>
+            <motion.a
+              href="https://github.com/madabhi"
+              target={"_blank"}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.8 }}
+              className=" gap-x-1 py-2 px-4 text-white font-medium rounded-full md:inline-flex"
+            >
+              <GithubIcon className="h-8 w-8 flex items-center justify-center " />
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/madabhi"
+              target={"_blank"}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.8 }}
+              className=" gap-x-1 py-2 px-4 text-white font-medium rounded-full md:inline-flex"
+            >
+              <LinkedinIcon className="h-8 w-8" />
+            </motion.a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default NavBar
+
+export default NavBar;

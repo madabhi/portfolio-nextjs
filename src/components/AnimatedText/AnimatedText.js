@@ -26,7 +26,7 @@ const AnimatedText = ({ title, className, ...rest }) => {
         variants={headingAnimation}
         initial="initial"
         animate="animate"
-        className=" w-full text-[100px] font-[800] text-left text-dark capitalize"
+        className=" w-full text-[2.5rem] md:text-[100px] font-[800] text-left text-dark capitalize"
       >
         {title.split(" ").map((word, index) => (
           <motion.span

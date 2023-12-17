@@ -5,7 +5,7 @@ export const InstaIcon = ({ className, ...rest }) => (
         width={100}
         height={100}
         viewBox="0 0 48 48"
-        className={`w-full  ${className}`}
+        className={`w-full ${className}`}
         {...rest}
     >
         <radialGradient

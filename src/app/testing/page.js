@@ -109,6 +109,7 @@ const Projects = () => {
             <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
               <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
               <div className="flex   flex-col w-full h-full  p-5">
+                
                 <div className="relative  bg-light">
                   <MotionImage
                     src="/images/project1.png"
@@ -150,6 +151,7 @@ const Projects = () => {
             <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
               <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
               <div className="flex   flex-col w-full h-full  p-5">
+                
                 <div className="relative  bg-light">
                   <MotionImage
                     src="/images/project1.png"
@@ -240,6 +242,7 @@ const Projects = () => {
             <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
               <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
               <div className="flex   flex-col w-full h-full  p-5">
+                
                 <div className="relative  bg-light">
                   <MotionImage
                     src="/images/project1.png"
@@ -281,6 +284,7 @@ const Projects = () => {
             <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
               <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
               <div className="flex   flex-col w-full h-full  p-5">
+                
                 <div className="relative  bg-light">
                   <MotionImage
                     src="/images/project1.png"
@@ -318,6 +322,7 @@ const Projects = () => {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </>
