@@ -44,7 +44,7 @@ const Projects = () => {
             {heading.split(" ").map((word, index) => (
               <motion.span
                 key={word + " " + index}
-                className="md:text-[100px] text-[2rem] font-[700] text-dark text-center inline-block "
+                className="md:text-[100px] text-[2.5rem] font-[700] text-dark text-center inline-block "
                 variants={wordAnimation}
                 initial="initial"
                 animate="animate"
