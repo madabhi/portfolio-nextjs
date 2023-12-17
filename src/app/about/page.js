@@ -55,7 +55,7 @@ const page = () => {
           {heading.split(" ").map((word, index) => (
             <motion.span
               key={word + " " + index}
-              className="text-[100px] font-[700] text-dark text-center inline-block "
+              className="md:text-[100px] text-[80px] font-[700] text-dark text-center inline-block "
               variants={wordAnimation}
               initial="initial"
               animate="animate"
@@ -119,7 +119,7 @@ const page = () => {
           {skills.split(" ").map((word, index) => (
             <motion.span
               key={word + " " + index}
-              className="text-[100px] font-[700] text-dark text-center md:inline-block "
+              className="md:text-[100px] text-[80px] font-[700] text-dark text-center md:inline-block "
               variants={wordAnimation}
               initial="initial"
               animate="animate"
@@ -130,7 +130,7 @@ const page = () => {
         </motion.h1>
 
         <div className="md:px-20 ">
-          <div className="w-full h-screen relative items-center flex justify-center bg-circularMobile md:bg-circularLight rounded-full">
+          <div className="w-screen h-screen relative items-center flex justify-center bg-circularMobile md:bg-circularLight rounded-full">
             <motion.div className="bg-primaryDark font-semibold md:p-4 absolute text-dark text-xl rounded-full flex items-center justify-center">
               Web
             </motion.div>
