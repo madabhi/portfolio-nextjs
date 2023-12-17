@@ -8,7 +8,7 @@ import {
   LinkedinIcon,
 } from "../../components/Icons/Icons";
 
-const NavBar= () => {
+const NavBar = () => {
   const [state, setState] = useState(false);
 
   // Replace javascript:void(0) paths with your paths
@@ -16,7 +16,6 @@ const NavBar= () => {
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
     { title: "Projects", path: "/projects" },
-    { title: "Testing", path: "/testing" },
   ];
 
   useEffect(() => {
@@ -78,14 +77,20 @@ const NavBar= () => {
         </div>
         <div
           className={`flex-1 items-center mt-8 md:mt-0 md:flex justify-between ${
-            state ? "block" : "hidden" // 
+            state ? "block" : "hidden" //
           } `}
         >
           <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => {
               return (
                 <li key={idx} className="text-gray-700 hover:text-gray-900">
-                  <Link href={item.path} className="block" onClick={()=>{setState(false)}} >
+                  <Link
+                    href={item.path}
+                    className="block"
+                    onClick={() => {
+                      setState(false);
+                    }}
+                  >
                     {item.title}
                   </Link>
                 </li>
@@ -127,6 +132,5 @@ const NavBar= () => {
     </nav>
   );
 };
-
 
 export default NavBar;
