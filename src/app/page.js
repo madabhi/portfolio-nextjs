@@ -6,6 +6,8 @@ import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import { OpenLinkIcon } from "@/components/Icons/Icons";
 import Link from "next/link";
 
+
+
 const mont = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
@@ -14,9 +16,10 @@ const mont = Montserrat({
 export default function Home() {
   return (
     <>
-      <div className={`${mont.variable} font-mont w-full h-full md:h-screen`}>
+      <div className={`${mont.variable} font-mont w-full h-full md:h-screen overflow-hidden`}>
+       
         <main className="flex flex-col-reverse md:flex-row items-center text-dark w-full h-full">
-          <Layout className="pt-0 md:pt-0 !p-2">
+          <Layout className="pt-0 md:pt-0 !p-2 !bg-transparent">
             <div className="flex flex-col md:flex-row w-full items-center justify-center">
               <div className="w-full md:w-1/2">
                 <Image

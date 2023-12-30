@@ -16,6 +16,8 @@ const NavBar = () => {
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
     { title: "Projects", path: "/projects" },
+    { title: "Admin", path: "/admin" },
+    { title: "Blog", path: "/blog" },
   ];
 
   useEffect(() => {
@@ -83,7 +85,7 @@ const NavBar = () => {
           <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => {
               return (
-                <li key={idx} className="text-gray-700 hover:text-gray-900">
+                <li key={idx} className="text-gray-700 hover:text-gray-900 font-medium">
                   <Link
                     href={item.path}
                     className="block"

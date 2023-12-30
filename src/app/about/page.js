@@ -1,15 +1,34 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 const mont = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
 });
-const heading = "About ME !";
+const heading = "About Me !";
 const skills = "Skills";
 const MotionImage = motion(Image);
+
+const FrontSet = {
+  HTML: "/images/skills/html.png",
+  CSS: "/images/skills/css.png",
+  Javascript: "/images/skills/js.png",
+  React: "/images/skills/react.png",
+  Tailwindcss: "/images/skills/tailwindcss.png",
+};
+
+let noFront = Object.keys(FrontSet).length;
+const BackendSet = {
+  Node: "/images/skills/node.png",
+  Express: "/images/skills/express.png",
+};
+const dbSet = {
+  MongoDB: "/images/skills/mongodb.png",
+  Firebase: "/images/skills/firebase.png",
+  Supabase: "/images/skills/supabase.png",
+};
 
 const wordAnimation = {
   initial: { y: 50, opacity: 0 },
@@ -31,7 +50,7 @@ const headingAnimation = {
 const Skill = ({ name, x, y }) => {
   return (
     <motion.div
-      className="bg-dark p-2 md:p-4 absolute text-light text-xl rounded-full flex items-center justify-center"
+      className="md:bg-dark md:p-4 absolute md:text-light text-xl rounded-full flex items-center justify-center"
       initial={{ x: 0, y: 0 }}
       whileInView={{ x: x, y: y }}
       transition={{ duration: 1.5 }}
@@ -43,8 +62,11 @@ const Skill = ({ name, x, y }) => {
 };
 
 const page = () => {
+  //
+
+  //
   return (
-    <div className="mb-20 mt-">
+    <div className="mb-20 ">
       <div className="flex justify-center">
         <motion.h1
           variants={headingAnimation}
@@ -129,22 +151,53 @@ const page = () => {
           ))}
         </motion.h1>
 
-        <div className="md:px-20 ">
-          <div className="w-full h-screen relative items-center flex justify-center bg-circularMobile md:bg-circularLight rounded-full">
-            <motion.div className="bg-primaryDark font-semibold md:p-4 absolute text-dark text-xl rounded-full flex items-center justify-center">
-              Web
-            </motion.div>
-            <Skill name="CSS" x="-4vw" y="-8vw" />
-            <Skill name="JavaScript" x="4vw" y="-21vw" />
-            <Skill name="HTML" x="-22vw" y="2vw" />
-            <Skill name="React JS" x="-29vw" y="-13vw" />
-            <Skill name="Next JS" x="32vw" y="-5vw" />
-            <Skill name="React Native" x="22vw" y="6vw" />
-            <Skill name="Expo" x="-4vw" y="20vw" />
-            <Skill name="Git" x="-4vw" y="12vw" />
-            <Skill name="Bootstrap" x="16vw" y="-12vw" />
-            <Skill name="TailWind CSS" x="-27vw" y="-4vw" />
-            <Skill name="Figma" x="-28vw" y="14vw" />
+        {/* ------------------------------------Skillsss--------------------------------- */}
+        <div className="bg-gradient-to-br from-opacity-10 via-transparent to-opacity-10 backdrop-blur-10">
+          <div className="flex flex-col  justify-evenly">
+            <div className="flex flex-col justify-start">
+              <h1 className="text-2xl font-semibold px-6">Frontend Skills</h1>
+              <div
+                className={`grid md:grid-cols-${noFront} grid-cols-2 md:gap-8`}
+              >
+                {Object.entries(FrontSet).map(([skill, imagePath]) => (
+                  <div
+                    className="flex flex-col justify-center items-center"
+                    key={imagePath}
+                  >
+                    <Image src={imagePath} height={70} width={70}></Image>
+                    {/* <p className="font-medium">{skill}</p> */}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col justify-start px-6 mt-10">
+              <h1 className="text-2xl font-semibold ">Backend Skills</h1>
+              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8">
+                {Object.entries(BackendSet).map(([skill, imagePath]) => (
+                  <div
+                    className="flex flex-col justify-center items-center"
+                    key={imagePath}
+                  >
+                    <Image src={imagePath} height={140} width={140}></Image>
+                    {/* <p className="font-medium">{skill}</p> */}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col justify-start px-6 mt-10">
+              <h1 className="text-2xl font-semibold ">Database</h1>
+              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8">
+                {Object.entries(dbSet).map(([skill, imagePath]) => (
+                  <div
+                    className="flex flex-col justify-center items-center"
+                    key={imagePath}
+                  >
+                    <Image src={imagePath} height={140} width={140}></Image>
+                    {/* <p className="font-medium">{skill}</p> */}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
