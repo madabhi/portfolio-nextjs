@@ -7,6 +7,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // -----------------------ADMIN PAGE-----------------------
 
+const isResizeObserverSupported =
+  typeof window !== "undefined" && "ResizeObserver" in window;
+
+// If available, import ResizeObserver
+let ResizeObserver;
+if (isResizeObserverSupported) {
+  ResizeObserver = require("resize-observer-polyfill");
+}
+
 const Admin = () => {
   const loadingNotify = () =>
     toast.success("Loading", {
