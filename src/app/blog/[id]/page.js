@@ -20,7 +20,8 @@ const Preview = ({ params }) => {
       try {
         const response = await fetch(`/api/post?id=${id}`);
         const blog = await response.json();
-        if (blog.message) {
+        console.log(blog)
+        if (blog.error) {
           fetchFailed();
           setTimeout(() => {
             router.push("/blog");
