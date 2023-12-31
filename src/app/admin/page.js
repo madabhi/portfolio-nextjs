@@ -1,11 +1,10 @@
 "use client";
-import { data } from "autoprefixer";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ResizeObserver from "resize-observer-polyfill";
 
 // -----------------------ADMIN PAGE-----------------------
 

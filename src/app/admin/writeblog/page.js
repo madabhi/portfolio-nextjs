@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import MarkdownEditor from "@uiw/react-markdown-editor";
+import dynamic from "next/dynamic";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import { set } from "mongoose";
-import ResizeObserver from 'resize-observer-polyfill';
 
-
+const MarkdownEditor = dynamic(() => import("@uiw/react-markdown-editor"), {
+  ssr: false,
+});
 
 
 const mdStr = `Type your content here`;
@@ -109,8 +109,7 @@ const WriteBlog = () => {
           <MarkdownEditor
             value={markdown}
             height="500px"
-            onChange={(value, viewUpdate) => setMarkdown(value)}
-            enablePreview={true}
+            onChange={(value) => setMarkdown(value)}
             className="mb-10"
           />
           <div className="flex justify-end">
