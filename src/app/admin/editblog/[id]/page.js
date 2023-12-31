@@ -117,7 +117,7 @@ const WriteBlog = ({ params }) => {
       setMarkdown(blog.content);
     };
     fetchData();
-  }, [uniqueId]);
+  }, []);
 
   return (
     <>

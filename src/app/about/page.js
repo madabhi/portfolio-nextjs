@@ -164,7 +164,7 @@ const page = () => {
                     className="flex flex-col justify-center items-center"
                     key={imagePath}
                   >
-                    <Image src={imagePath} height={70} width={70}></Image>
+                    <Image src={imagePath} height={70} width={70} alt="skills images"></Image>
                     {/* <p className="font-medium">{skill}</p> */}
                   </div>
                 ))}
@@ -178,7 +178,7 @@ const page = () => {
                     className="flex flex-col justify-center items-center"
                     key={imagePath}
                   >
-                    <Image src={imagePath} height={140} width={140}></Image>
+                    <Image src={imagePath} height={140} width={140} alt="skills image"></Image>
                     {/* <p className="font-medium">{skill}</p> */}
                   </div>
                 ))}
@@ -192,7 +192,7 @@ const page = () => {
                     className="flex flex-col justify-center items-center"
                     key={imagePath}
                   >
-                    <Image src={imagePath} height={140} width={140}></Image>
+                    <Image src={imagePath} height={140} width={140} alt="skills image"></Image>
                     {/* <p className="font-medium">{skill}</p> */}
                   </div>
                 ))}

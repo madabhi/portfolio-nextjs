@@ -77,7 +77,7 @@ const Admin = () => {
           </div>
           <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {blogData.map((item, idx) => (
-              <li className="border rounded-lg">
+              <li className="border rounded-lg" key={idx}>
                 <div className="flex items-start justify-between p-4">
                   <div className="space-y-2">
                     <h4 className="text-gray-800 font-semibold">
