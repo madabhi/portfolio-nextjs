@@ -18,8 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={mont.className}>
         <NavBar />
-        
-        {children}
+        <div className="h-full">{children}</div>
+
         <Footer />
       </body>
     </html>
