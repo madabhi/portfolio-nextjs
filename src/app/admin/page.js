@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ResizeObserver from "resize-observer-polyfill";
+
 // -----------------------ADMIN PAGE-----------------------
-
-
 
 const Admin = () => {
   const loadingNotify = () =>
