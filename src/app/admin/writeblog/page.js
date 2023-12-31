@@ -6,14 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { set } from "mongoose";
 
-const isResizeObserverSupported =
-  typeof window !== "undefined" && "ResizeObserver" in window;
 
-// If available, import ResizeObserver
-let ResizeObserver;
-if (isResizeObserverSupported) {
-  ResizeObserver = require("resize-observer-polyfill");
-}
 
 const mdStr = `Type your content here`;
 
