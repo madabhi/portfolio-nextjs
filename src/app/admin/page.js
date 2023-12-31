@@ -13,9 +13,11 @@ const Admin = () => {
     toast.success("Loading", {
       icon: "🚀",
     });
+  
+
   const router = useRouter();
   const logout = async () => {
-    const response = await fetch("/api/user/logout", {
+    const response = await fetch(`api/user/logout`, {
       method: "GET",
     });
 

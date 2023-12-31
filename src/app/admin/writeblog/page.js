@@ -24,9 +24,13 @@ const WriteBlog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const apiUrl =
+      process.env.NODE_ENV === "development"
+        ? `${process.env.CLIENT_URL}`
+        : `${process.env.PRODUCTION_URL}`;
 
     try {
-      const response = await fetch("http://localhost:3000/api/blog", {
+      const response = await fetch(`/api/blog`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -26,7 +26,7 @@ const WriteBlog = ({ params }) => {
 
   const deletePost = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/blog", {
+      const response = await fetch("/api/blog", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const WriteBlog = ({ params }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/blog", {
+      const response = await fetch("/api/blog", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
