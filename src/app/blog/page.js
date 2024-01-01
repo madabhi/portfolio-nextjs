@@ -5,7 +5,14 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 
 const Card = ({ key, item }) => {
-  const { title, tag, content, blogId } = item;
+  const { title, tag, content, blogId, date } = item;
+
+  const dateObject = new Date(date);
+
+  const options = { day: "2-digit", month: "short", year: "numeric" };
+
+  const formattedDate = dateObject.toLocaleDateString("en-IN", options);
+
   return (
     <>
       <Link href={`/blog/${blogId}`}>
@@ -14,20 +21,27 @@ const Card = ({ key, item }) => {
           whileTap={{ scale: 0.99 }}
           whileHover={{ scale: 1.01 }}
         >
-          <div className="border-2 border-black h-[250px] rounded-[30px] relative  bg-light flex ">
+          <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
             <div className="flex   flex-col w-full h-full  p-5">
               <div className="relative  bg-light"></div>
               <div className="pl-1 flex flex-col gap-1">
-                <h1 className="text-2xl font-bold">{title}</h1>
+                <h1 className="text-lg  font-bold">{title}</h1>
                 <span
-                  className="font-semibold bg-gray-400 text-light rounded-md w-auto text-center"
+                  className="font-semibold bg-gray-400 text-light rounded-md w-auto text-center text-sm"
                   style={{ width: `${tag.length * 10 + 10}px` }}
                 >
                   {tag}
                 </span>
+                <span>
+                  <p className="text-sm">{formattedDate}</p>
+                </span>
                 <div className="flex flex-col justify-evenly ">
                   <p className="text-sm">
-                    <Markdown className="">{content.length > 10 ? `${content.substring(0, 50)}...` : content}</Markdown>
+                    <Markdown className="">
+                      {content.length > 10
+                        ? `${content.substring(0, 50)}...`
+                        : content}
+                    </Markdown>
                   </p>
 
                   <p className="text-lg underline cursor-pointer">Visit</p>

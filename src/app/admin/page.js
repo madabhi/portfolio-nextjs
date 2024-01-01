@@ -13,11 +13,11 @@ const Admin = () => {
     toast.success("Loading", {
       icon: "🚀",
     });
-  
 
   const router = useRouter();
+
   const logout = async () => {
-    const response = await fetch(`api/user/logout`, {
+    const response = await fetch(`/api/user/logout`, {
       method: "GET",
     });
 
@@ -79,35 +79,46 @@ const Admin = () => {
             </p>
           </div>
           <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {blogData.map((item, idx) => (
-              <li className="border rounded-lg" key={idx}>
-                <div className="flex items-start justify-between p-4">
-                  <div className="space-y-2">
-                    <h4 className="text-gray-800 font-semibold">
-                      {item.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm">{item.tag}</p>
+            {blogData.map((item, idx) => {
+              const dateObject = new Date(item.date);
+              const formattedDate = dateObject.toLocaleDateString("en-IN", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              });
+
+              return (
+                <li className="border rounded-lg" key={idx}>
+                  <div className="flex items-start justify-between p-4">
+                    <div className="space-y-2">
+                      <h4 className="text-gray-800 font-semibold">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">{item.tag}</p>
+                      <p className="text-gray-600 text-sm">{formattedDate}</p>
+                    </div>
+                    <Link href={`/admin/editblog/${item.blogId}`}>
+                      <button
+                        onClick={loadingNotify}
+                        className="text-gray-700 text-sm border rounded-lg px-3 py-2 duration-150 hover:bg-gray-100"
+                      >
+                        Edit
+                      </button>
+                    </Link>
                   </div>
-                  <Link href={`/admin/editblog/${item.blogId}`}>
-                    <button
-                      onClick={loadingNotify}
-                      className="text-gray-700 text-sm border rounded-lg px-3 py-2 duration-150 hover:bg-gray-100"
+                  <div className="py-5 px-4 border-t text-right">
+                    <Link
+                      href={`/blog/${item.blogId}`}
+                      className="text-indigo-600 hover:text-indigo-500 text-sm font-medium"
                     >
-                      Edit
-                    </button>
-                  </Link>
-                </div>
-                <div className="py-5 px-4 border-t text-right">
-                  <Link
-                    href={`/blog/${item.blogId}`}
-                    className="text-indigo-600 hover:text-indigo-500 text-sm font-medium"
-                  >
-                    View
-                  </Link>
-                </div>
-              </li>
-            ))}
+                      View
+                    </Link>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
+
           <button className="mt-4" onClick={logout}>
             LogOut
           </button>

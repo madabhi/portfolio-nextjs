@@ -18,9 +18,7 @@ const WriteBlog = ({ params }) => {
   const [markdown, setMarkdown] = useState(mdStr);
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
-  const [blogId, setBlogId] = useState("");
   const [uniqueId, setUniqueId] = useState(params.id);
-  const [formSubmitting, setFormSubmitting] = useState(false);
 
   const id = params.id;
 
@@ -72,9 +70,7 @@ const WriteBlog = ({ params }) => {
           _id: uniqueId,
           title,
           tag,
-          blogId,
           content: markdown,
-          date: Date.now().toString(),
         }),
       });
       console.log(response);
@@ -84,7 +80,6 @@ const WriteBlog = ({ params }) => {
           setMarkdown("");
           setTitle("");
           setTag("");
-          setBlogId("");
           setTimeout(() => {
             router.push("/admin");
           }, 1500);
@@ -113,7 +108,6 @@ const WriteBlog = ({ params }) => {
       setTitle(blog.title);
       setUniqueId(blog._id);
       setTag(blog.tag);
-      setBlogId(blog.blogId);
       setMarkdown(blog.content);
     };
     fetchData();
@@ -148,18 +142,6 @@ const WriteBlog = ({ params }) => {
                   className="w-full pl-12 pr-3 py-2 text-gray-800 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                   value={tag}
                   onChange={(e) => setTag(e.target.value)}
-                />
-              </div>
-              <div className="relative max-w-xs">
-                <p className="font-medium">Blog ID</p>
-                <input
-                  type="text"
-                  placeholder="Enter Blog Tag"
-                  required
-                  name="tag"
-                  className="w-full pl-12 pr-3 py-2 text-gray-800 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-                  value={blogId}
-                  onChange={(e) => setBlogId(e.target.value)}
                 />
               </div>
             </div>

@@ -20,15 +20,10 @@ const WriteBlog = () => {
   const [markdown, setMarkdown] = useState(mdStr);
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
-  const [blogId, setBlogId] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const apiUrl =
-      process.env.NODE_ENV === "development"
-        ? `${process.env.CLIENT_URL}`
-        : `${process.env.PRODUCTION_URL}`;
-
+    
     try {
       const response = await fetch(`/api/blog`, {
         method: "POST",
@@ -38,9 +33,7 @@ const WriteBlog = () => {
         body: JSON.stringify({
           title,
           tag,
-          blogId,
           content: markdown,
-          date: Date.now().toString(),
         }),
       });
 
@@ -50,7 +43,6 @@ const WriteBlog = () => {
           setMarkdown("");
           setTitle("");
           setTag("");
-          setBlogId("");
           setTimeout(() => {
             router.push("/admin");
           }, 1500);
@@ -96,18 +88,7 @@ const WriteBlog = () => {
                   onChange={(e) => setTag(e.target.value)}
                 />
               </div>
-              <div className="relative max-w-xs">
-                <p className="font-medium">Blog ID</p>
-                <input
-                  type="text"
-                  placeholder="Enter Blog Tag"
-                  required
-                  name="tag"
-                  className="w-full pl-12 pr-3 py-2 text-gray-800 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-                  value={blogId}
-                  onChange={(e) => setBlogId(e.target.value)}
-                />
-              </div>
+              
             </div>
           </div>
           <MarkdownEditor
