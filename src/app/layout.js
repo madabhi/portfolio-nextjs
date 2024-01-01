@@ -16,10 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={mont.className}>
+      <body className={`flex flex-col min-h-screen ${mont.className}`}>
         <NavBar />
-        <div className="h-full">{children}</div>
-
+        <div className="flex-grow">{children}</div>
         <Footer />
       </body>
     </html>

@@ -96,22 +96,28 @@ const page = () => {
             <div className="bio p-3 md:w-1/2 flex justify-start flex-col gap-4 z-10 order-1 md:order-2">
               <h1 className="text-2xl font-bold text-[#515151]">Biography</h1>
               <p className="text-justify text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem natus nostrum, voluptatum quaerat temporibus quae id
-                dolores sequi hic in, beatae officia, inventore nam! Praesentium
-                consequatur asperiores ducimus id doloribus eius iste aspernatur
-                tenetur voluptatum necessitatibus libero itaque in voluptatibus
-                ipsum consequuntur, perspiciatis minus deserunt natus autem
-                commodi sunt illo doloremque. Labore, ullam corporis tempora
-                ducimus illo laudantium a quae id distinctio iusto natus,
-                debitis odio voluptatem quas saepe aliquam placeat excepturi
-                deserunt nemo beatae! Ratione perspiciatis delectus, rem iste
-                consequatur ipsa velit labore ad doloribus quam odio, quos
-                architecto eum! Vel eius natus beatae hic non commodi pariatur
-                iusto!
+                Hi, I'm <strong>Abhinav Singh</strong>, a Computer Science and
+                Engineering student at Sagar Institute of Science and
+                Technology. Currently delving into the intricacies of coding and
+                problem-solving, my journey has been enriched by experiences in
+                leadership and technology. I serve as a
+                <strong>Google Cloud Career Practitioner Facilitator</strong>,
+                guiding peers through the fascinating realm of cloud computing.
+                Leading the
+                <strong> "Ikshana"</strong> team, we organize engaging technical
+                events, fostering innovation and collaboration on campus. My
+                passion lies in web development, from crafting seamless user
+                experiences to diving into the backend with Node.js. Proudly a
+                <strong> Microsoft Learn Student Ambassador Alpha</strong>, I
+                stay updated on the latest Microsoft technologies and actively
+                contribute to the tech community. Beyond the screen, I enjoy
+                exploring emerging technologies, sipping coffee, and tackling
+                coding challenges with an insatiable thirst for knowledge. Join
+                me on this thrilling journey of continuous learning and shaping
+                the ever-evolving landscape of technology.
               </p>
             </div>
-            <div className="p-2 md:w-1/2 flex justify-center relative z-10">
+            <div className="p-2 md:w-1/2 flex md:h-96 justify-center relative z-10">
               <div className="border-black border-2 border-b-8 border-r-8 rounded-2xl relative bg-light">
                 <div className="z-1 p-4">
                   <MotionImage
@@ -157,14 +163,19 @@ const page = () => {
             <div className="flex flex-col justify-start">
               <h1 className="text-2xl font-semibold px-6">Frontend Skills</h1>
               <div
-                className={`grid md:grid-cols-${noFront} grid-cols-2 md:gap-8`}
+                className={`grid md:grid-cols-8 grid-cols-2 md:gap-8 md:pl-10`}
               >
                 {Object.entries(FrontSet).map(([skill, imagePath]) => (
                   <div
                     className="flex flex-col justify-center items-center"
                     key={imagePath}
                   >
-                    <Image src={imagePath} height={70} width={70} alt="skills images"></Image>
+                    <Image
+                      src={imagePath}
+                      height={50}
+                      width={50}
+                      alt="skills images"
+                    ></Image>
                     {/* <p className="font-medium">{skill}</p> */}
                   </div>
                 ))}
@@ -172,13 +183,18 @@ const page = () => {
             </div>
             <div className="flex flex-col justify-start px-6 mt-10">
               <h1 className="text-2xl font-semibold ">Backend Skills</h1>
-              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8">
+              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 ">
                 {Object.entries(BackendSet).map(([skill, imagePath]) => (
                   <div
                     className="flex flex-col justify-center items-center"
                     key={imagePath}
                   >
-                    <Image src={imagePath} height={140} width={140} alt="skills image"></Image>
+                    <Image
+                      src={imagePath}
+                      height={140}
+                      width={140}
+                      alt="skills image"
+                    ></Image>
                     {/* <p className="font-medium">{skill}</p> */}
                   </div>
                 ))}
@@ -192,7 +208,12 @@ const page = () => {
                     className="flex flex-col justify-center items-center"
                     key={imagePath}
                   >
-                    <Image src={imagePath} height={140} width={140} alt="skills image"></Image>
+                    <Image
+                      src={imagePath}
+                      height={140}
+                      width={140}
+                      alt="skills image"
+                    ></Image>
                     {/* <p className="font-medium">{skill}</p> */}
                   </div>
                 ))}

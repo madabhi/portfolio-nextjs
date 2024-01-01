@@ -6,8 +6,6 @@ import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import { OpenLinkIcon } from "@/components/Icons/Icons";
 import Link from "next/link";
 
-
-
 const mont = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
@@ -16,8 +14,9 @@ const mont = Montserrat({
 export default function Home() {
   return (
     <>
-      <div className={`${mont.variable} font-mont w-full h-full md:h-screen overflow-hidden`}>
-       
+      <div
+        className={`${mont.variable} font-mont w-full h-full md:h-screen overflow-hidden`}
+      >
         <main className="flex flex-col-reverse md:flex-row items-center text-dark w-full h-full">
           <Layout className="pt-0 md:pt-0 !p-2 !bg-transparent">
             <div className="flex flex-col md:flex-row w-full items-center justify-center">
@@ -41,22 +40,24 @@ export default function Home() {
                   web development.
                 </p>
                 <div className="mt-4 md:mt-[100px] flex flex-col md:flex-row  items-center">
-                  <button className="bg-dark text-light w-full md:w-40 h-12 rounded-lg text-xl mb-4 md:mb-0 md:mr-4 flex justify-center items-center">
-                    Resume
-                    <span>
-                      <OpenLinkIcon
-                        className="text-white ml-2"
-                        width={20}
-                        fill={"white"}
-                      />
-                    </span>
-                  </button>
-                  <Link
-                    href="/contact"
+                  <a href="https://linkedin.com/in/madabhi">
+                    <button className="bg-dark text-light w-full md:w-40 h-12 rounded-lg text-xl mb-4 md:mb-0 md:mr-4 flex justify-center items-center">
+                      Connect
+                      <span>
+                        <OpenLinkIcon
+                          className="text-white ml-2"
+                          width={20}
+                          fill={"white"}
+                        />
+                      </span>
+                    </button>
+                  </a>
+                  <a
+                    href="mailto:abhinavas430@gmail.com"
                     className="text-lg underline font-[500]"
                   >
                     Contact
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
