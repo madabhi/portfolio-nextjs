@@ -96,7 +96,6 @@ export async function PUT(req) {
     await req.json();
   try {
     await connect();
-    const projectImage = `${gitHubLink}/blob/master/projectImage/project.jpg?raw=true`;
     let date = new Date();
     let projectId = title.replace(/\s/g, "-").toLowerCase();
     let hours = date.getHours();
@@ -116,7 +115,6 @@ export async function PUT(req) {
     project.gitHubLink = gitHubLink;
     project.isFeatured = isFeatured;
     project.projectId = projectId;
-    project.projectImage = projectImage;
     await project.save();
     return NextResponse.json({
       status: 200,
