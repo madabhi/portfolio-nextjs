@@ -41,7 +41,6 @@ const WriteBlog = ({ params }) => {
           setMarkdown("");
           setTitle("");
           setTag("");
-          setBlogId("");
           setTimeout(() => {
             router.push("/admin");
           }, 1500);
@@ -111,7 +110,7 @@ const WriteBlog = ({ params }) => {
       setMarkdown(blog.content);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <>
