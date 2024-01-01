@@ -18,7 +18,7 @@ export function middleware(request) {
     } else {
       return NextResponse.redirect(new URL("/", request.nextUrl));
     }
-  } else if (path === "/admin/writeblog") {
+  } else if (path === "/admin/blogs/writeblog") {
     const token = request.cookies.get("token")?.value || "";
     if (token) {
       return NextResponse.next();

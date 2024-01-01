@@ -1,129 +1,78 @@
-"use client";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React from "react";
 
-// -----------------------ADMIN PAGE-----------------------
-
-const Admin = () => {
-  const loadingNotify = () =>
-    toast.success("Loading", {
-      icon: "🚀",
-    });
-
-  const router = useRouter();
-
-  const logout = async () => {
-    const response = await fetch(`/api/user/logout`, {
-      method: "GET",
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    const data = await response.json();
-    if (data.success) {
-      router.push("/");
-    }
-  };
-
-  const [blogData, setBlogData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/blog", {
-          method: "GET",
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-
-        const data = await response.json();
-        setBlogData(data);
-        // console.log(data[0].title);
-        // console.log(blogData[0]);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+const Card = ({ item }) => {
+  const { title, description, link } = item;
   return (
     <>
-      <ToastContainer />
-      <section className="py-16">
-        <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-          <div className="max-w-md">
-            <h1 className="text-gray-800 text-xl font-extrabold sm:text-3xl">
-              Admin Page
-            </h1>
-            <p className="text-gray-600 mt-2 font-medium">
-              Extend and automate your workflow by using integrations for your
-              favorite tools. <br />
-              <button
-                className="bg-dark text-light p-2 rounded-lg"
-                onClick={() => {
-                  loadingNotify();
-                  router.push("/admin/writeblog");
-                }}
-              >
-                Write Blog
-              </button>
-            </p>
+      <div class="bg-white w-64 h-64 rounded-lg">
+        <div class="flex p-2 gap-1">
+          <div class="">
+            <span class="bg-blue-500 inline-block center w-3 h-3 rounded-full"></span>
           </div>
-          <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {blogData.map((item, idx) => {
-              const dateObject = new Date(item.date);
-              const formattedDate = dateObject.toLocaleDateString("en-IN", {
-                day: "2-digit",
-                month: "short",
-                year: "numeric",
-              });
-
-              return (
-                <li className="border rounded-lg" key={idx}>
-                  <div className="flex items-start justify-between p-4">
-                    <div className="space-y-2">
-                      <h4 className="text-gray-800 font-semibold">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 text-sm">{item.tag}</p>
-                      <p className="text-gray-600 text-sm">{formattedDate}</p>
-                    </div>
-                    <Link href={`/admin/editblog/${item.blogId}`}>
-                      <button
-                        onClick={loadingNotify}
-                        className="text-gray-700 text-sm border rounded-lg px-3 py-2 duration-150 hover:bg-gray-100"
-                      >
-                        Edit
-                      </button>
-                    </Link>
-                  </div>
-                  <div className="py-5 px-4 border-t text-right">
-                    <Link
-                      href={`/blog/${item.blogId}`}
-                      className="text-indigo-600 hover:text-indigo-500 text-sm font-medium"
-                    >
-                      View
-                    </Link>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-
-          <button className="mt-4" onClick={logout}>
-            LogOut
-          </button>
+          <div class="circle">
+            <span class="bg-purple-500 inline-block center w-3 h-3 rounded-full"></span>
+          </div>
+          <div class="circle">
+            <span class="bg-pink-500 box inline-block center w-3 h-3 rounded-full"></span>
+          </div>
         </div>
-      </section>
+        <div class="card__content flex flex-col justify-between p-3">
+          <div className="">
+            <h2 class="text-xl font-semibold">{title}</h2>
+            <p class="text-gray-500 mt-2 text-sm ">{description}</p>
+          </div>
+          <div className="flex mt-4 justify-center">
+            <Link href={link} className="mt-4">
+              <button className=" bg-gray-200 p-1 rounded-lg">
+                Click Here
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const cardData = [
+  {
+    title: "Manage Projects",
+    description: "Manage projects and add new projects to the portfolio.",
+    link: "/admin/projects",
+  },
+
+  {
+    title: "Manage Blogs",
+    description: "Manage blogs and add new blogs to the portfolio.",
+    link: "/admin/blogs",
+  },
+  {
+    title: "Write Blogs",
+    description: "Write blogs and publish them to the portfolio.",
+    link: "/admin/blogs/writeblog",
+  },
+  {
+    title: "Add Projects",
+    description: "Add projects and publish them to the portfolio.",
+    link: "/admin/projects/add",
+  },
+];
+
+const Admin = () => {
+  return (
+    <>
+      <div className="p-1 md:px-44">
+        <div className=" bg-gray-100 md:p-6 mb-4 grid grid-cols-4 gap-4 p-4 ">
+          {cardData.map((item, idx) => {
+            return (
+              <div className="col-span-4 md:col-span-1" key={idx}>
+                <Card item={item} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 };
