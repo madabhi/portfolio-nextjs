@@ -65,8 +65,8 @@ const Projects = () => {
     );
   }
   const renderFeaturedProjects = () => {
-    return featuredProjects.map((project) => (
-      <div className=" col-span-2">
+    return featuredProjects.map((project,key) => (
+      <div className=" col-span-2" key={key}>
         <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex  ">
           <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
           <div className="flex  flex-col md:flex-row   w-full h-full  p-5 ">
@@ -122,8 +122,8 @@ const Projects = () => {
   };
 
   const renderOtherProjects = () => {
-    return otherProjects.map((project) => (
-      <div className="col-span-2 md:col-span-1 ">
+    return otherProjects.map((project,key) => (
+      <div className="col-span-2 md:col-span-1 " key={key}>
         <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
           <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
           <div className="flex   flex-col w-full h-full  p-5">
