@@ -40,7 +40,7 @@ export default function Home() {
                   web development.
                 </p>
                 <div className="mt-4 md:mt-[100px] flex flex-col md:flex-row  items-center">
-                  <a href="https://linkedin.com/in/madabhi" className="w-full">
+                  <a href="https://linkedin.com/in/madabhi" className=" w-full md:w-auto">
                     <button className="bg-dark text-light w-full md:w-40 h-12 rounded-lg text-xl mb-4 md:mb-0 md:mr-4 flex justify-center items-center">
                       Connect
                       <span>

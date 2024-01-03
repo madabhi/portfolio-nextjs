@@ -12,18 +12,23 @@ if (!accountName) throw Error("Azure Storage accountName not found");
 //   new DefaultAzureCredential()
 // );
 
-const account = process.env.ACCOUNT_NAME || "";
-const accountKey = process.env.ACCOUNT_KEY || "";
+// const account = process.env.ACCOUNT_NAME || "";
+// const accountKey = process.env.ACCOUNT_KEY || "";
 
-const sharedKeyCredential = new StorageSharedKeyCredential(
-  process.env.AZURE_STORAGE_ACCOUNT_NAME,
-  process.env.AZURE_STORAGE_CONNECTION_KEY
-);
+// const sharedKeyCredential = new StorageSharedKeyCredential(
+//   process.env.AZURE_STORAGE_ACCOUNT_NAME,
+//   process.env.AZURE_STORAGE_CONNECTION_KEY
+// );
 
-const blobServiceClient = new BlobServiceClient(
-  `https://${accountName}.blob.core.windows.net`,
-  sharedKeyCredential
-);
+// const blobServiceClient = new BlobServiceClient(
+//   `https://${accountName}.blob.core.windows.net`,
+//   sharedKeyCredential
+// );
+
+ const STORAGE_CONNECTION_STRING = process.env.STORAGE_CONNECTION_STRING || "";
+ const blobServiceClient = BlobServiceClient.fromConnectionString(
+   STORAGE_CONNECTION_STRING
+ );
 
 const containerClient = blobServiceClient.getContainerClient(
   process.env.AZURE_CONTAINER_NAME
