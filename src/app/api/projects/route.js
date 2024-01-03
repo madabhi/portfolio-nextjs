@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import ProjectModel from "@/models/ProjectModel";
 import connect from "@/db/index";
-import { writeFile } from "fs/promises";
-import { unlink } from "fs/promises";
+import containerClient from "@/utils/azure";
+import { v4 as uuidv4 } from "uuid";
 // ------------------POST METHOD ------------------
 export async function POST(req) {
   const data = await req.formData();
@@ -22,9 +22,20 @@ export async function POST(req) {
 
   const byteImage = await image.arrayBuffer();
   const buffer = Buffer.from(byteImage);
-  const imagePath = `./public/images/projects/${projectId}+${image.name}`;
-  await writeFile(imagePath, buffer);
-  const projectImage = imagePath.slice(8);
+  // const imagePath = `./public/images/projects/${projectId}+${image.name}`;
+  // await writeFile(imagePath, buffer);
+  // const projectImage = imagePath.slice(8);
+
+  const blobName = `${projectId}-${uuidv4()}-${image.name}`;
+  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+  const uploadBlobResponse = await blockBlobClient.upload(
+    buffer,
+    buffer.length
+  );
+
+  const projectImage = blockBlobClient.url;
+
+  console.log(projectImage);
 
   try {
     await connect();
@@ -143,9 +154,10 @@ export async function DELETE(req) {
         message: "Project not found",
       });
     }
+    const blobName = project.projectImage.split("/").pop();
+    const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-    const imagePath = `./public/${project.projectImage}`;
-    await unlink(imagePath);
+    await blockBlobClient.delete();
 
     return NextResponse.json({
       status: 200,

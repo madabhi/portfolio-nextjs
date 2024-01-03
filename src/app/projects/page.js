@@ -65,7 +65,7 @@ const Projects = () => {
     );
   }
   const renderFeaturedProjects = () => {
-    return featuredProjects.map((project,key) => (
+    return featuredProjects.map((project, key) => (
       <div className=" col-span-2" key={key}>
         <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex  ">
           <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
@@ -97,7 +97,7 @@ const Projects = () => {
               <p className="text-j">{project.description}</p>
               <div className="flex justify-start items-center ">
                 <Link href={project.gitHubLink}>
-                  <button className="bg-dark text-light px-4 py-2 rounded-lg w-full items-center font-semibold flex">
+                  <button className="bg-dark text-sm text-light  p-1 md:px-3 md:py-2 rounded-lg w-full items-center font-semibold flex">
                     <motion.span
                       whileHover={{ scale: 1.1 }}
                       className="cursor-pointer"
@@ -106,7 +106,13 @@ const Projects = () => {
                       <GithubIcon
                         height={40}
                         width={40}
-                        className="w-12 mr-4"
+                        className="md:w-12 w-6 mr-4 hidden md:block"
+                        fill="white"
+                      />
+                      <GithubIcon
+                        height={30}
+                        width={30}
+                        className="md:w-12 w-6 mr-4 md:hidden"
                         fill="white"
                       />
                     </motion.span>
@@ -122,7 +128,7 @@ const Projects = () => {
   };
 
   const renderOtherProjects = () => {
-    return otherProjects.map((project,key) => (
+    return otherProjects.map((project, key) => (
       <div className="col-span-2 md:col-span-1 " key={key}>
         <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
           <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
@@ -191,7 +197,8 @@ const Projects = () => {
             {heading.split(" ").map((word, index) => (
               <motion.span
                 key={word + " " + index}
-                className="md:text-[70px] text-[2.5rem] font-[700] text-dark text-center inline-block "
+                className="md:text-[70pxch
+                ] text-[2.5rem] font-[700] text-dark text-center inline-block "
                 variants={wordAnimation}
                 initial="initial"
                 animate="animate"
