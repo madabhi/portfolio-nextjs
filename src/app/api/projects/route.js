@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
 import ProjectModel from "@/models/ProjectModel";
 import connect from "@/db/index";
-import containerClient from "@/utils/azure";
-import { v4 as uuidv4 } from "uuid";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 import { storage, app } from "@/utils/firebase";
 
 // ------------------POST METHOD ------------------
@@ -42,11 +45,9 @@ export async function POST(req) {
     console.log("Uploaded a blob or file!");
     console.log("Snap Shot:    " + snapshot);
   });
-  console.log("Storage REF:    " + storageRef);
   let projectImage = process.env.DEFAULT_PROJECT_IMAGE;
   const gsReference = ref(storage, storageRef);
-  console.log("GS REF:    " + gsReference);
-
+  const imageRef = storageRef;
   await getDownloadURL(gsReference)
     .then((url) => {
       console.log("Download URL:", url);
@@ -66,6 +67,7 @@ export async function POST(req) {
       description,
       category,
       gitHubLink,
+      imageRef,
       isFeatured,
       projectId,
       projectImage,
@@ -176,17 +178,17 @@ export async function DELETE(req) {
         message: "Project not found",
       });
     }
-    const blobName = project.projectImage.split("/").pop();
+    const imageRef = project.imageRef;
     // const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
     // await blockBlobClient.delete();
-    const desertRef = ref(storage, blobName);
+    const desertRef = ref(storage, imageRef);
 
     // Delete the file
     deleteObject(desertRef)
       .then(() => {
         // File deleted successfully
-        console.log("File Deleted")
+        console.log("File Deleted");
       })
       .catch((error) => {
         // Uh-oh, an error occurred!
