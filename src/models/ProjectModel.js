@@ -9,6 +9,7 @@ const Project = new Schema({
     type: String,
     required: true,
   },
+  isAchievement: { type: Boolean, required: true },
   imageRef: {
     type: String,
     required: true,

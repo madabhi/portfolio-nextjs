@@ -22,6 +22,7 @@ const AddProject = ({ params }) => {
   const [category, setCategory] = useState("");
   const [gitHubLink, setGitHubLink] = useState("");
   const [isFeatured, setIsFeatured] = useState(false);
+  const [isAchievement, setIsAchievement] = useState(false);
 
   const deleteProject = async () => {
     try {
@@ -65,6 +66,7 @@ const AddProject = ({ params }) => {
           title,
           description,
           category,
+          isAchievement,
           gitHubLink,
           isFeatured,
         }),
@@ -107,6 +109,7 @@ const AddProject = ({ params }) => {
         setCategory(data.category);
         setGitHubLink(data.gitHubLink);
         setIsFeatured(data.isFeatured);
+        setIsAchievement(data.isAchievement);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -185,6 +188,23 @@ const AddProject = ({ params }) => {
                     checked={isFeatured}
                     onChange={() => {
                       setIsFeatured(!isFeatured);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex-1 flex items-end md:pl-8 md:gap-4">
+                <label className="text-black" htmlFor="isFeatured">
+                  Achievement
+                </label>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="isFeatured"
+                    id="isFeatured"
+                    className=""
+                    checked={isAchievement}
+                    onChange={() => {
+                      setIsAchievement(!isAchievement);
                     }}
                   />
                 </div>

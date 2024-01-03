@@ -18,6 +18,7 @@ export async function POST(req) {
   const gitHubLink = data.get("gitHubLink");
   const isFeatured = data.get("isFeatured");
   const image = data.get("image");
+  const isAchievement = data.get("isAchievement");
 
   let date = new Date();
   let projectId = title.replace(/\s/g, "-").toLowerCase();
@@ -66,6 +67,7 @@ export async function POST(req) {
       title,
       description,
       category,
+      isAchievement,
       gitHubLink,
       imageRef,
       isFeatured,
@@ -127,7 +129,7 @@ export async function GET(req) {
 
 // ------------------PUT METHOD ------------------
 export async function PUT(req) {
-  const { title, description, category, gitHubLink, isFeatured, uniqueId } =
+  const { title, description, category, gitHubLink, isFeatured, uniqueId,isAchievement  } =
     await req.json();
   try {
     await connect();
@@ -150,6 +152,7 @@ export async function PUT(req) {
     project.gitHubLink = gitHubLink;
     project.isFeatured = isFeatured;
     project.projectId = projectId;
+    project.isAchievement = isAchievement;
     await project.save();
     return NextResponse.json({
       status: 200,

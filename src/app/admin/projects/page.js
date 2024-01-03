@@ -60,7 +60,7 @@ const Projects = () => {
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className="max-w-md">
             <h1 className="text-gray-800 text-xl font-extrabold sm:text-3xl">
-              Manage Projects
+              Manage Projects & Achievements
             </h1>
             <p className="text-gray-600 mt-2 font-medium">
               Extend and automate your workflow by using integrations for your
@@ -72,7 +72,7 @@ const Projects = () => {
                   router.push("/admin/projects/add");
                 }}
               >
-                Add Projects
+                Add Projects & Achievements
               </button>
             </p>
           </div>

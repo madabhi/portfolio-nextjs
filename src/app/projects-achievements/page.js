@@ -86,7 +86,7 @@ const Projects = () => {
             </div>
             <div className="h-full md:w-1/2 flex flex-col gap-2 md:pl-4 justify-center mt-4 md:mt-0">
               <span className="font-semibold bg-pink-500 text-light rounded-md w-48 text-center">
-                Featured Project
+                {project.isAchievement ? "Achievement" : "Featured Project"}
               </span>
               <span>
                 <p className="text-xl font-semibold text-pink-500">
@@ -95,31 +95,37 @@ const Projects = () => {
               </span>
               <h1 className="text-4xl font-bold">{project.title}</h1>
               <p className="text-j">{project.description}</p>
-              <div className="flex justify-start items-center ">
-                <Link href={project.gitHubLink}>
-                  <button className="bg-dark text-sm text-light  p-1 md:px-3 md:py-2 rounded-lg w-full items-center font-semibold flex">
-                    <motion.span
-                      whileHover={{ scale: 1.1 }}
-                      className="cursor-pointer"
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <GithubIcon
-                        height={40}
-                        width={40}
-                        className="md:w-12 w-6 mr-4 hidden md:block"
-                        fill="white"
-                      />
-                      <GithubIcon
-                        height={30}
-                        width={30}
-                        className="md:w-12 w-6 mr-4 md:hidden"
-                        fill="white"
-                      />
-                    </motion.span>
-                    Visit Project
-                  </button>
-                </Link>
-              </div>
+              {project.isAchievement ? (
+                <div className="flex justify-start items-center">
+                  {/* Content for the "else" condition */}
+                </div>
+              ) : (
+                <div className="flex justify-start items-center">
+                  <Link href={project.gitHubLink}>
+                    <button className="bg-dark text-sm text-light p-1 md:px-3 md:py-2 rounded-lg w-full items-center font-semibold flex">
+                      <motion.span
+                        whileHover={{ scale: 1.1 }}
+                        className="cursor-pointer"
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <GithubIcon
+                          height={40}
+                          width={40}
+                          className="md:w-12 w-6 mr-4 hidden md:block"
+                          fill="white"
+                        />
+                        <GithubIcon
+                          height={30}
+                          width={30}
+                          className="md:w-12 w-6 mr-4 md:hidden"
+                          fill="white"
+                        />
+                      </motion.span>
+                      Visit Project
+                    </button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>

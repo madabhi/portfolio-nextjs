@@ -19,6 +19,7 @@ const AddProject = () => {
   const [gitHubLink, setGitHubLink] = useState("");
   const [isFeatured, setIsFeatured] = useState(false);
   const [image, setImage] = useState("");
+  const [isAchievement, setIsAchievement] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +32,7 @@ const AddProject = () => {
       formData.append("category", category);
       formData.append("gitHubLink", gitHubLink);
       formData.append("isFeatured", isFeatured);
+      formData.append("isAchievement", isAchievement);
 
       const response = await fetch("/api/projects", {
         method: "POST",
@@ -123,6 +125,22 @@ const AddProject = () => {
                     className=""
                     onChange={() => {
                       setIsFeatured(!isFeatured);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex-1 flex items-end md:pl-8 md:gap-4">
+                <label className="text-black" htmlFor="isFeatured">
+                  Achievement
+                </label>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="isFeatured"
+                    id="isFeatured"
+                    className=""
+                    onChange={() => {
+                      setIsAchievement(!isAchievement);
                     }}
                   />
                 </div>
