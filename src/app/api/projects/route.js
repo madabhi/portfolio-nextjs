@@ -3,6 +3,9 @@ import ProjectModel from "@/models/ProjectModel";
 import connect from "@/db/index";
 import containerClient from "@/utils/azure";
 import { v4 as uuidv4 } from "uuid";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage, app } from "@/utils/firebase";
+
 // ------------------POST METHOD ------------------
 export async function POST(req) {
   const data = await req.formData();
@@ -26,16 +29,35 @@ export async function POST(req) {
   // await writeFile(imagePath, buffer);
   // const projectImage = imagePath.slice(8);
 
-  const blobName = `${projectId}-${uuidv4()}-${image.name}`;
-  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-  const uploadBlobResponse = await blockBlobClient.upload(
-    buffer,
-    buffer.length
-  );
+  // const blobName = `${projectId}-${uuidv4()}-${image.name}`;
+  // const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+  // const uploadBlobResponse = await blockBlobClient.upload(
+  //   buffer,
+  //   buffer.length
+  // );
 
-  const projectImage = blockBlobClient.url;
+  const imageName = `${projectId}-${image.name.split(" ").join("-")}`;
+  const storageRef = ref(storage, imageName);
+  const uploadTask = await uploadBytes(storageRef, buffer).then((snapshot) => {
+    console.log("Uploaded a blob or file!");
+    console.log("Snap Shot:    " + snapshot);
+  });
+  console.log("Storage REF:    " + storageRef);
+  let projectImage = process.env.DEFAULT_PROJECT_IMAGE;
+  const gsReference = ref(storage, storageRef);
+  console.log("GS REF:    " + gsReference);
 
-  console.log(projectImage);
+  await getDownloadURL(gsReference)
+    .then((url) => {
+      console.log("Download URL:", url);
+      projectImage = url;
+      // Now you can use this URL to access the file, for example, to display an image in an HTML element
+      console.log("url:    " + url);
+    })
+    .catch((error) => {
+      // Handle any errors
+      console.error("Error getting download URL:", error);
+    });
 
   try {
     await connect();
@@ -155,9 +177,20 @@ export async function DELETE(req) {
       });
     }
     const blobName = project.projectImage.split("/").pop();
-    const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+    // const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-    await blockBlobClient.delete();
+    // await blockBlobClient.delete();
+    const desertRef = ref(storage, blobName);
+
+    // Delete the file
+    deleteObject(desertRef)
+      .then(() => {
+        // File deleted successfully
+        console.log("File Deleted")
+      })
+      .catch((error) => {
+        // Uh-oh, an error occurred!
+      });
 
     return NextResponse.json({
       status: 200,

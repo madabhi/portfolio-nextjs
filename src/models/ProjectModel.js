@@ -9,6 +9,7 @@ const Project = new Schema({
     type: String,
     required: true,
   },
+
   isFeatured: { type: Boolean, required: true },
   date: {
     type: Date,

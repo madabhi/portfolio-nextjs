@@ -26,7 +26,7 @@ if (!accountName) throw Error("Azure Storage accountName not found");
 // );
 
 const STORAGE_CONNECTION_STRING = process.env.STORAGE_CONNECTION_STRING || "";
-const blobServiceClient = BlobServiceClient.fromConnectionString(
+const blobServiceClient =  BlobServiceClient.fromConnectionString(
   STORAGE_CONNECTION_STRING
 );
 
