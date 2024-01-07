@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import AdminNav from "@/components/AdminNav/AdminNav";
 
 const MarkdownEditor = dynamic(() => import("@uiw/react-markdown-editor"), {
   ssr: false,
@@ -59,6 +60,7 @@ const WriteBlog = () => {
   return (
     <>
       <ToastContainer />
+      <AdminNav />
       <form onSubmit={handleSubmit} method="POST">
         <div className=" md:px-0 mb-2">
           <div className="flex">

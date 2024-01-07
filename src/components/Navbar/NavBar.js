@@ -90,7 +90,7 @@ const NavBar = () => {
                 >
                   <Link
                     href={item.path}
-                    className="block"
+                    className="block hover:text-blue-600 transition duration-150 ease-in-out"
                     onClick={() => {
                       setState(false);
                     }}

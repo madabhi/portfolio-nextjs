@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import MarkdownEditor from "@uiw/react-markdown-editor";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AdminNav from "@/components/AdminNav/AdminNav";
 const mdStr = `# This is a H1 \n## This is a H2 \n###### This is a H6`;
 const { useRouter } = require("next/navigation");
 
@@ -115,6 +116,7 @@ const WriteBlog = ({ params }) => {
   return (
     <>
       <ToastContainer />
+      <AdminNav />
       <form onSubmit={handleSubmit} method="POST">
         <div className=" md:px-0 mb-2">
           <div className="flex">

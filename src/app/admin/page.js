@@ -1,3 +1,4 @@
+import AdminNav from "@/components/AdminNav/AdminNav";
 import Link from "next/link";
 import React from "react";
 
@@ -63,6 +64,7 @@ const Admin = () => {
   return (
     <>
       <div className=" ">
+        <AdminNav />
         <div className=" bg-gray-100 md:p-6 mb-4 grid grid-cols-4 gap-6 p-4 ">
           {cardData.map((item, idx) => {
             return (

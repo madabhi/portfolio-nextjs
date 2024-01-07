@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AdminNav from "@/components/AdminNav/AdminNav";
 
 // -----------------------ADMIN PAGE-----------------------
 
@@ -56,7 +57,8 @@ const Admin = () => {
   return (
     <>
       <ToastContainer />
-      <section className="py-16">
+      <AdminNav />
+      <section className="py-4">
         <div className="max-w-screen-xl mx-auto px-4 md:px-0">
           <div className="max-w-md">
             <h1 className="text-gray-800 text-xl font-extrabold sm:text-3xl">

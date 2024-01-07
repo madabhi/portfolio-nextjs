@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import AdminNav from "@/components/AdminNav/AdminNav";
 
 const AddProject = ({ params }) => {
   const uniqueId = params.id;
@@ -123,6 +124,7 @@ const AddProject = ({ params }) => {
   return (
     <>
       <ToastContainer />
+      <AdminNav />
       <div className="p-1  md:px-0 mb-2">
         <form action="" onSubmit={handleSubmit}>
           <div className="mt-4 flex flex-col bg-gray-100 rounded-lg p-4 shadow-sm">
