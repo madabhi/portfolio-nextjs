@@ -107,10 +107,10 @@ const NavBar = () => {
               target={"_blank"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.8 }}
-              className="flex items-center w-8"
+              className=" w-8  "
             >
               {" "}
-              <InstaIcon className="" />
+              <InstaIcon className="md:mt-0 mt-6" />
             </motion.a>
             <motion.a
               href="https://github.com/madabhi"
@@ -119,7 +119,7 @@ const NavBar = () => {
               whileTap={{ scale: 0.8 }}
               className="  w-8 text-white font-medium rounded-full md:inline-flex"
             >
-              <GithubIcon className=" flex items-center justify-center " />
+              <GithubIcon className=" " />
             </motion.a>
             <motion.a
               href="https://linkedin.com/in/madabhi"
