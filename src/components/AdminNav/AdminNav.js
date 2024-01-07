@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-export default () => {
+export default AdminNav = () => {
   const [state, setState] = useState(false);
 
   // Replace   paths with your paths
