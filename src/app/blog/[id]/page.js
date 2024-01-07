@@ -53,7 +53,9 @@ const Preview = ({ params }) => {
       <div className="flex md:justify-center px-4 md:p-0">
         <div className="md:w-[700px] flex flex-col font-medium">
           <div>
-            <h1 className="text-[28px] md:text-[48px] font-bold">{title}</h1>
+            <h1 className="text-[28px] md:text-[48px] md:leading-tight font-bold">
+              {title}
+            </h1>
             <div>
               <span
                 className="font-semibold bg-gray-400 text-light rounded-md w-auto text-center text-sm p-1"
