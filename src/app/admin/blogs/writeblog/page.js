@@ -9,7 +9,6 @@ const MarkdownEditor = dynamic(() => import("@uiw/react-markdown-editor"), {
   ssr: false,
 });
 
-
 const mdStr = `Type your content here`;
 
 const WriteBlog = () => {
@@ -23,7 +22,7 @@ const WriteBlog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch(`/api/blog`, {
         method: "POST",
@@ -61,7 +60,7 @@ const WriteBlog = () => {
     <>
       <ToastContainer />
       <form onSubmit={handleSubmit} method="POST">
-        <div className="md:px-40">
+        <div className=" md:px-0 mb-2">
           <div className="flex">
             <div className="mb-5 flex md:flex-row flex-col p-5 md:p-0 gap-5">
               <div className="relative max-w-xs">
@@ -88,7 +87,6 @@ const WriteBlog = () => {
                   onChange={(e) => setTag(e.target.value)}
                 />
               </div>
-              
             </div>
           </div>
           <MarkdownEditor

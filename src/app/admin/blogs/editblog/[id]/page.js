@@ -116,7 +116,7 @@ const WriteBlog = ({ params }) => {
     <>
       <ToastContainer />
       <form onSubmit={handleSubmit} method="POST">
-        <div className="md:px-40">
+        <div className=" md:px-0 mb-2">
           <div className="flex">
             <div className="mb-5 flex md:flex-row flex-col p-5 md:p-0 gap-5">
               <div className="relative max-w-xs">

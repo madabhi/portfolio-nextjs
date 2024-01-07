@@ -62,7 +62,7 @@ const AddProject = () => {
   return (
     <>
       <ToastContainer />
-      <div className="p-1 md:px-40">
+      <div className="p-1 md:px-0 mb-2">
         <form action="" onSubmit={handleSubmit}>
           <div className="mt-4 flex flex-col bg-gray-100 rounded-lg p-4 shadow-sm">
             <h2 className="ai-story-maker-dream-form text-black font-bold text-2xl">
