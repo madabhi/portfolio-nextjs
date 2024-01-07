@@ -13,7 +13,7 @@ export async function POST(req) {
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     blogId = blogId + `-${hours}-${minutes}-${seconds}`;
-
+    blogId = blogId.replace(/\?/g, "-");
     await Blog.create({ blogId, title, tag, content, date });
     return NextResponse.json({
       title,
@@ -49,6 +49,7 @@ export async function PUT(req) {
   let minutes = date.getMinutes();
   let seconds = date.getSeconds();
   blogId = blogId + `-${hours}-${minutes}-${seconds}`;
+  blogId = blogId.replace(/\?/g, "-");
 
   try {
     await connect();
