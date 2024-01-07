@@ -23,6 +23,7 @@ let noFront = Object.keys(FrontSet).length;
 const BackendSet = {
   Node: "/images/skills/node.png",
   Express: "/images/skills/express.png",
+  Next: "/images/skills/nextjs.jpg",
 };
 const dbSet = {
   MongoDB: "/images/skills/mongodb.png",
@@ -190,7 +191,7 @@ const page = () => {
               <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4">
                 {Object.entries(BackendSet).map(([skill, imagePath]) => (
                   <div
-                    className="flex flex-col justify-center items-center skills-shadow rounded py-4"
+                    className="flex flex-col justify-center items-center skills-shadow rounded py-3 px-1 md:px-0 "
                     key={imagePath}
                   >
                     <Image
@@ -206,10 +207,10 @@ const page = () => {
             </div>
             <div className="flex flex-col justify-start px-4 md:px-0 mt-10">
               <h1 className="text-2xl font-semibold ">Database</h1>
-              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4">
+              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4 ">
                 {Object.entries(dbSet).map(([skill, imagePath]) => (
                   <div
-                    className="flex flex-col justify-center items-center skills-shadow rounded  "
+                    className="flex flex-col justify-center items-center skills-shadow rounded py-3 px-1 md:px-0 "
                     key={imagePath}
                   >
                     <Image

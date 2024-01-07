@@ -57,7 +57,7 @@ const Admin = () => {
     <>
       <ToastContainer />
       <section className="py-16">
-        <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-0">
           <div className="max-w-md">
             <h1 className="text-gray-800 text-xl font-extrabold sm:text-3xl">
               Manage Blogs

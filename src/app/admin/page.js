@@ -62,8 +62,8 @@ const cardData = [
 const Admin = () => {
   return (
     <>
-      <div className="p-1 md:px-44">
-        <div className=" bg-gray-100 md:p-6 mb-4 grid grid-cols-4 gap-4 p-4 ">
+      <div className=" ">
+        <div className=" bg-gray-100 md:p-6 mb-4 grid grid-cols-4 gap-6 p-4 ">
           {cardData.map((item, idx) => {
             return (
               <div className="col-span-4 md:col-span-1" key={idx}>
