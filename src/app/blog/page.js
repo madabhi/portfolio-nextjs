@@ -12,14 +12,12 @@ const Card = ({ key, item }) => {
   const options = { day: "2-digit", month: "short", year: "numeric" };
 
   const formattedDate = dateObject.toLocaleDateString("en-IN", options);
-  const truncatedTitle = title.split(" ").slice(0, 4).join(" ");
-  
 
   return (
     <>
       <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-          {truncatedTitle}
+          {title}
         </h5>
         <span>
           <p className="text-sm">{formattedDate}</p>

@@ -140,7 +140,7 @@ const Projects = () => {
       <div className="col-span-2 md:col-span-1 " key={key}>
         <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
           <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
-          <div className="flex   flex-col w-full h-full  p-5">
+          <div className="flex   flex-col   w-full h-full  p-5">
             <div className="relative  bg-light">
               <MotionImage
                 src={
@@ -157,7 +157,7 @@ const Projects = () => {
                 }}
               />
             </div>
-            <div className="pl-1 flex flex-col gap-1">
+            <div className="pl-1 flex flex-col gap-1 ">
               <span>
                 <p className="text-md font-semibold text-pink-500">
                   {project.category}
