@@ -106,7 +106,7 @@ const Projects = () => {
                   </div>
                   <div className="py-5 px-4 border-t text-right">
                     <Link
-                      href={`/projects`}
+                      href={`/projects-achievements`}
                       className="text-indigo-600 hover:text-indigo-500 text-sm font-medium"
                     >
                       View

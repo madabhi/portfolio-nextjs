@@ -96,7 +96,6 @@ export async function GET(req) {
   if (!id) {
     try {
       const resp = await ProjectModel.find().sort({ date: -1 });
-
       return NextResponse.json(resp, { status: 200 });
     } catch (error) {
       console.error(error);
@@ -108,7 +107,6 @@ export async function GET(req) {
   } else {
     try {
       const project = await ProjectModel.findOne({ projectId: id });
-
       if (!project) {
         return NextResponse.json({
           status: 404,
@@ -129,8 +127,9 @@ export async function GET(req) {
 
 // ------------------PUT METHOD ------------------
 export async function PUT(req) {
-  const { title, description, category, gitHubLink, isFeatured, uniqueId,isAchievement  } =
+  const { title, description, category, gitHubLink, isFeatured, dbId,isAchievement  } =
     await req.json();
+  console.log(dbId);
   try {
     await connect();
     let date = new Date();
@@ -139,7 +138,7 @@ export async function PUT(req) {
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     projectId = projectId + `-${hours}-${minutes}-${seconds}`;
-    const project = await ProjectModel.findOne({ projectId: uniqueId });
+    const project = await ProjectModel.findOne({ _id: dbId });
     if (!project) {
       return NextResponse.json({
         status: 404,
@@ -169,10 +168,10 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
-  const { uniqueId } = await req.json();
+  const { dbId } = await req.json();
   try {
     const project = await ProjectModel.findOneAndDelete({
-      projectId: uniqueId,
+      _id: dbId,
     });
 
     if (!project) {

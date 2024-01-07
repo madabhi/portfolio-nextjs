@@ -85,16 +85,18 @@ const Projects = () => {
               </motion.div>
             </div>
             <div className="h-full md:w-1/2 flex flex-col gap-2 md:pl-4 justify-center mt-4 md:mt-0">
-              <span className="font-semibold bg-pink-500 text-light rounded-md w-48 text-center">
+              <span className="font-semibold bg-pink-500 text-light rounded-md w-40 text-center">
                 {project.isAchievement ? "Achievement" : "Featured Project"}
               </span>
               <span>
-                <p className="text-xl font-semibold text-pink-500">
+                <p className="text-md font-semibold text-pink-500">
                   {project.category}
                 </p>
               </span>
-              <h1 className="text-4xl font-bold">{project.title}</h1>
-              <p className="text-j">{project.description}</p>
+              <h1 className="text-2xl font-bold heading-clamp">
+                {project.title}
+              </h1>
+              <p className="text-sm">{project.description}</p>
               {project.isAchievement ? (
                 <div className="flex justify-start items-center">
                   {/* Content for the "else" condition */}
@@ -102,16 +104,16 @@ const Projects = () => {
               ) : (
                 <div className="flex justify-start items-center">
                   <Link href={project.gitHubLink}>
-                    <button className="bg-dark text-sm text-light p-1 md:px-3 md:py-2 rounded-lg w-full items-center font-semibold flex">
+                    <button className="bg-dark text-sm text-light p-1 md:px-2 md:py-2 rounded-lg w-full items-center  flex">
                       <motion.span
                         whileHover={{ scale: 1.1 }}
                         className="cursor-pointer"
                         whileTap={{ scale: 0.9 }}
                       >
                         <GithubIcon
-                          height={40}
-                          width={40}
-                          className="md:w-12 w-6 mr-4 hidden md:block"
+                          height={30}
+                          width={30}
+                          className="  hidden md:block"
                           fill="white"
                         />
                         <GithubIcon
@@ -157,22 +159,22 @@ const Projects = () => {
             </div>
             <div className="pl-1 flex flex-col gap-1">
               <span>
-                <p className="text-xl font-semibold text-pink-500">
+                <p className="text-md font-semibold text-pink-500">
                   {project.category}
                 </p>
               </span>
-              <h1 className="text-3xl font-bold">{project.title}</h1>
+              <h1 className="text-xl font-bold">{project.title}</h1>
               <div className="flex items-center justify-start ">
                 <Link href={project.gitHubLink}>
-                  <button className="bg-dark text-light px-4 py-2 rounded-lg w-full items-center font-semibold flex">
+                  <button className="bg-dark text-light px-2 py-2 rounded-lg w-full items-center  flex">
                     <motion.span
                       whileHover={{ scale: 1.1 }}
                       className="cursor-pointer"
                       whileTap={{ scale: 0.9 }}
                     >
                       <GithubIcon
-                        height={30}
-                        width={30}
+                        height={25}
+                        width={25}
                         className="w-12 mr-4"
                         fill="white"
                       />
@@ -191,7 +193,7 @@ const Projects = () => {
   return (
     <>
       <div
-        className={` ${mont.variable} font-mont flex-grow-1 parent flex md:px-32 justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
+        className={` ${mont.variable} font-mont flex-grow-1 parent flex  justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
       >
         <div className="flex justify-center">
           <motion.h1

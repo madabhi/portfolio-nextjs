@@ -34,7 +34,7 @@ const NavBar = () => {
           : ""
       }`}
     >
-      <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
+      <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-0">
         <div className="flex items-center justify-between py-5 md:block">
           <Link href="/">
             <h1 className="font-bold text-2xl">Abhinav</h1>
@@ -101,34 +101,34 @@ const NavBar = () => {
               );
             })}
           </ul>
-          <div className="flex justify-center items-center mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
+          <div className="flex justify-center items-center gap-x-4 mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
             <motion.a
               href="https://instagram.com/alphaabhi.in"
               target={"_blank"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.8 }}
-              className="flex items-center"
+              className="flex items-center w-8"
             >
               {" "}
-              <InstaIcon className="h-8 w-8" />
+              <InstaIcon className="" />
             </motion.a>
             <motion.a
               href="https://github.com/madabhi"
               target={"_blank"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.8 }}
-              className=" gap-x-1 py-2 px-4 text-white font-medium rounded-full md:inline-flex"
+              className="  w-8 text-white font-medium rounded-full md:inline-flex"
             >
-              <GithubIcon className="h-8 w-8 flex items-center justify-center " />
+              <GithubIcon className=" flex items-center justify-center " />
             </motion.a>
             <motion.a
               href="https://linkedin.com/in/madabhi"
               target={"_blank"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.8 }}
-              className=" gap-x-1 py-2 px-4 text-white font-medium rounded-full md:inline-flex"
+              className="   text-white font-medium rounded-full md:inline-flex"
             >
-              <LinkedinIcon className="h-8 w-8" />
+              <LinkedinIcon className="h-8 " />
             </motion.a>
           </div>
         </div>

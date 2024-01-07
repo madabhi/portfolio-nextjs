@@ -84,8 +84,10 @@ export const OpenLinkIcon = ({ className, ...rest }) => (
 export const LinkedinIcon = ({ className, ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 48 48"
-    className={`  ${className}`}
+    width={100}
+    height={100}
+    viewBox="0 0 50 50"
+    className={`w-full  ${className}`}
     {...rest}
   >
     <path

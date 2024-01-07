@@ -23,6 +23,7 @@ const AddProject = ({ params }) => {
   const [gitHubLink, setGitHubLink] = useState("");
   const [isFeatured, setIsFeatured] = useState(false);
   const [isAchievement, setIsAchievement] = useState(false);
+  const [dbId, setDbId] = useState("");
 
   const deleteProject = async () => {
     try {
@@ -32,7 +33,7 @@ const AddProject = ({ params }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          uniqueId: uniqueId,
+          dbId,
         }),
       });
 
@@ -62,7 +63,7 @@ const AddProject = ({ params }) => {
       const response = await fetch(`/api/projects`, {
         method: "PUT",
         body: JSON.stringify({
-          uniqueId,
+          dbId,
           title,
           description,
           category,
@@ -110,13 +111,14 @@ const AddProject = ({ params }) => {
         setGitHubLink(data.gitHubLink);
         setIsFeatured(data.isFeatured);
         setIsAchievement(data.isAchievement);
+        setDbId(data._id);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  },[]);
 
   return (
     <>

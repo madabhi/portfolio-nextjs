@@ -89,35 +89,26 @@ const page = () => {
       </div>
 
       {/* Biography and Image */}
-      <div className="px-4 md:flex md:px-20">
+      <div className="px-4 md:px-0 md:flex ">
         <div className="wrap w-full border-2 border-black rounded-xl relative bg-light">
           <div className="md:h-[103%]  w-[101%] rounded-[30px] bg-black -z-10 absolute hidden md:block"></div>
-          <div className="md:flex md:p-8 md:py-24 relative w-full flex flex-col md:flex-row ">
-            <div className="bio p-3 md:w-1/2 flex justify-start flex-col gap-4 z-10 order-1 md:order-2">
+          <div className="md:flex md:p-8 md:py-4 relative w-full flex flex-col gap-x-10 md:flex-row ">
+            <div className="bio  md:w-1/2 flex justify-start flex-col gap-4 z-10 order-1 md:order-2 px-2 md:px-0">
               <h1 className="text-2xl font-bold text-[#515151]">Biography</h1>
-              <p className="text-justify text-lg">
+              <p className="text-justify text-md ">
                 Hi, I'm <strong>Abhinav Singh</strong>, a Computer Science and
                 Engineering student at Sagar Institute of Science and
                 Technology. Currently delving into the intricacies of coding and
                 problem-solving, my journey has been enriched by experiences in
                 leadership and technology. I serve as a
-                <strong>Google Cloud Career Practitioner Facilitator</strong>,
+                <strong> Google Cloud Career Practitioner Facilitator</strong>,
                 guiding peers through the fascinating realm of cloud computing.
                 Leading the
                 <strong> "Ikshana"</strong> team, we organize engaging technical
-                events, fostering innovation and collaboration on campus. My
-                passion lies in web development, from crafting seamless user
-                experiences to diving into the backend with Node.js. Proudly a
-                <strong> Microsoft Learn Student Ambassador Alpha</strong>, I
-                stay updated on the latest Microsoft technologies and actively
-                contribute to the tech community. Beyond the screen, I enjoy
-                exploring emerging technologies, sipping coffee, and tackling
-                coding challenges with an insatiable thirst for knowledge. Join
-                me on this thrilling journey of continuous learning and shaping
-                the ever-evolving landscape of technology.
+                events, fostering innovation and collaboration on campus.
               </p>
             </div>
-            <div className="p-2 md:w-1/2 flex md:h-96 justify-center relative z-10">
+            <div className="p-2 md:w-1/2 flex md:h-90 justify-center relative z-10">
               <div className="border-black border-2 border-b-8 border-r-8 rounded-2xl relative bg-light">
                 <div className="z-1 p-4">
                   <MotionImage
@@ -132,12 +123,23 @@ const page = () => {
               </div>
             </div>
           </div>
+          <p className="text-justify text-md md:px-10 pb-8 px-2">
+            My passion lies in web development, from crafting seamless user
+            experiences to diving into the backend with Node.js. Proudly a
+            <strong> Microsoft Learn Student Ambassador Alpha</strong>, I stay
+            updated on the latest Microsoft technologies and actively contribute
+            to the tech community. Beyond the screen, I enjoy exploring emerging
+            technologies, sipping coffee, and tackling coding challenges with an
+            insatiable thirst for knowledge. Join me on this thrilling journey
+            of continuous learning and shaping the ever-evolving landscape of
+            technology.
+          </p>
         </div>
       </div>
 
       {/* Skills Section */}
 
-      <div className="flex md:justify-center mt-12 flex-col md:px-[200px] ">
+      <div className="flex md:justify-center mt-12 flex-col  ">
         <motion.h1
           variants={headingAnimation}
           initial="initial"
@@ -147,7 +149,7 @@ const page = () => {
           {skills.split(" ").map((word, index) => (
             <motion.span
               key={word + " " + index}
-              className="md:text-[100px] text-[80px] font-[700] text-dark text-center md:inline-block "
+              className="md:text-[70px] text-[40px] font-[700] text-dark text-center inline-block "
               variants={wordAnimation}
               initial="initial"
               animate="animate"
@@ -158,35 +160,37 @@ const page = () => {
         </motion.h1>
 
         {/* ------------------------------------Skillsss--------------------------------- */}
-        <div className="bg-gradient-to-br from-opacity-10 via-transparent to-opacity-10 backdrop-blur-10">
+        <div className="bg-gradient-to-br from-opacity-10 via-transparent to-opacity-10 backdrop-blur-10 ">
           <div className="flex flex-col  justify-evenly">
             <div className="flex flex-col justify-start">
-              <h1 className="text-2xl font-semibold px-6">Frontend Skills</h1>
-              <div
-                className={`grid md:grid-cols-8 grid-cols-2 md:gap-8 md:pl-10`}
-              >
-                {Object.entries(FrontSet).map(([skill, imagePath]) => (
-                  <div
-                    className="flex flex-col justify-center items-center"
-                    key={imagePath}
-                  >
-                    <Image
-                      src={imagePath}
-                      height={50}
-                      width={50}
-                      alt="skills images"
-                    ></Image>
-                    {/* <p className="font-medium">{skill}</p> */}
-                  </div>
-                ))}
+              <div className="px-4 md:px-0">
+                <h1 className="text-2xl font-semibold ">Frontend Skills</h1>
+                <div
+                  className={`grid md:grid-cols-8 grid-cols-2 md:gap-8 gap-4`}
+                >
+                  {Object.entries(FrontSet).map(([skill, imagePath]) => (
+                    <div
+                      className="flex flex-col justify-center items-center skills-shadow rounded py-4 px-4 md:px-0"
+                      key={imagePath}
+                    >
+                      <Image
+                        src={imagePath}
+                        height={50}
+                        width={50}
+                        alt="skills images"
+                      ></Image>
+                      {/* <p className="font-medium">{skill}</p> */}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="flex flex-col justify-start px-6 mt-10">
+            <div className="flex flex-col justify-start px-4 md:px-0 mt-10">
               <h1 className="text-2xl font-semibold ">Backend Skills</h1>
-              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 ">
+              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4">
                 {Object.entries(BackendSet).map(([skill, imagePath]) => (
                   <div
-                    className="flex flex-col justify-center items-center"
+                    className="flex flex-col justify-center items-center skills-shadow rounded py-4"
                     key={imagePath}
                   >
                     <Image
@@ -200,12 +204,12 @@ const page = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col justify-start px-6 mt-10">
+            <div className="flex flex-col justify-start px-4 md:px-0 mt-10">
               <h1 className="text-2xl font-semibold ">Database</h1>
-              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8">
+              <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4">
                 {Object.entries(dbSet).map(([skill, imagePath]) => (
                   <div
-                    className="flex flex-col justify-center items-center"
+                    className="flex flex-col justify-center items-center skills-shadow rounded  "
                     key={imagePath}
                   >
                     <Image

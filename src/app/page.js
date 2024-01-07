@@ -19,16 +19,8 @@ export default function Home() {
       >
         <main className="flex flex-col-reverse md:flex-row items-center text-dark w-full h-full">
           <Layout className="pt-0 md:pt-0 !p-2 !bg-transparent">
-            <div className="flex flex-col md:flex-row w-full items-center justify-center">
-              <div className="w-full md:w-1/2">
-                <Image
-                  src="/images/profile.png"
-                  width={600}
-                  height={600}
-                  className="max-w-full h-auto"
-                />
-              </div>
-              <div className="w-full md:w-1/2 md:pr-8">
+            <div className="flex flex-col md:flex-row w-full items-center justify-between">
+              <div className="w-full md:w-1/2 order-3 md:order-1 ">
                 <AnimatedText
                   title={"Hey, I'm Abhinav"}
                   className="text-xl md:text-[100px] font-[900]"
@@ -40,7 +32,10 @@ export default function Home() {
                   web development.
                 </p>
                 <div className="mt-4 md:mt-[100px] flex flex-col md:flex-row  items-center">
-                  <a href="https://linkedin.com/in/madabhi" className=" w-full md:w-auto">
+                  <a
+                    href="https://linkedin.com/in/madabhi"
+                    className=" w-full md:w-auto"
+                  >
                     <button className="bg-dark text-light w-full md:w-40 h-12 rounded-lg text-xl mb-4 md:mb-0 md:mr-4 flex justify-center items-center">
                       Connect
                       <span>
@@ -59,6 +54,14 @@ export default function Home() {
                     Contact
                   </a>
                 </div>
+              </div>
+              <div className="w-full md:w-1/2 order-2">
+                <Image
+                  src="/images/profile.png"
+                  width={600}
+                  height={600}
+                  className="max-w-full h-auto"
+                />
               </div>
             </div>
           </Layout>
