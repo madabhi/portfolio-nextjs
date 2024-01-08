@@ -68,7 +68,7 @@ const Preview = ({ params }) => {
               </span>
             </div>
             <hr className="mb-5" />
-            <Markdown remarkPlugins={[remarkGfm]} className="prose mb-8">
+            <Markdown remarkPlugins={[remarkGfm]} className="prose mb-8 text-justify">
               {markdown}
             </Markdown>
             {title && <h1>Thank you for reading 😁</h1>}

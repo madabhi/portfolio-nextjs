@@ -6,7 +6,6 @@ export async function GET(req) {
   const id = req.nextUrl.searchParams.get("id");
 
   try {
-    console.log(id)
     await connect();
     const blog = await Blog.findOne({ blogId: id });
 
