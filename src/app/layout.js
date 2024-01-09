@@ -20,6 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="3_yA6g383IuLb_Bba-sY9baBcWxPG4G8kdqK7mqr4Bc"
+        />
+      </head>
       <body
         className={`flex flex-col min-h-screen justify-between  ${mont.className}`}
       >
