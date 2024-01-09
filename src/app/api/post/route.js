@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req) {
   const id = req.nextUrl.searchParams.get("id");
+  console.log("Server side id: " + id)
 
   try {
     await connect();

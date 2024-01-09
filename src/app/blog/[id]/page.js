@@ -1,82 +1,24 @@
-"use client";
-import { useEffect, useState } from "react";
+import BlogById from "@/components/BlogById/BlogById";
 import React from "react";
-import { createRoot } from "react-dom/client";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { useRouter } from "next/navigation"; // Corrected import for Next.js router
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-const Preview = ({ params }) => {
-  const router = useRouter();
-  const fetchFailed = () => toast.error("No Blog with this Name");
-  const [markdown, setMarkdown] = useState("Loading...");
-  const [title, setTitle] = useState("");
-  const [tag, setTag] = useState("");
-  const [formattedDate, setFormattedDate] = useState("");
+export async function generateMetadata({ params }) {
   const id = params.id;
+  console.log(id);
+  const product = await fetch(
+    `https://abhinavsingh-steel.vercel.app/api/post?id=${id}`
+  ).then((res) => res.json());
+  return {
+    title: product.title,
+    description: product.content,
+  };
+} 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/api/post?id=${id}`);
-        if (!response.ok) throw new Error("Blog fetch failed");
-
-        const blog = await response.json();
-        if (blog.error) {
-          throw new Error(blog.error);
-        }
-
-        setMarkdown(blog.content);
-        setTitle(blog.title);
-        setTag(blog.tag);
-        const dateObject = new Date(blog.date);
-        const options = { day: "2-digit", month: "short", year: "numeric" };
-        setFormattedDate(dateObject.toLocaleDateString("en-IN", options));
-      } catch (error) {
-        console.error(error.message); 
-        fetchFailed();
-
-        setTimeout(() => {
-        router.push("/blog");
-        }, 2000);
-      }
-    };
-
-    fetchData();
-  }, [id]); // Added id as a dependency
-
+const Page = ({ params }) => {
   return (
-    <>
-      <ToastContainer />
-      <div className="flex md:justify-center px-4 md:p-0">
-        <div className="md:w-[700px] flex flex-col font-medium">
-          <div>
-            <h1 className="text-[28px] md:text-[48px] md:leading-tight font-bold">
-              {title}
-            </h1>
-            <div>
-              <span
-                className="font-semibold bg-gray-400 text-light rounded-md w-auto text-center text-sm p-1"
-                style={{ width: `${tag.length * 10 + 10}px` }}
-              >
-                {tag}
-              </span>
-              <span>
-                <p className="text-sm">{formattedDate}</p>
-              </span>
-            </div>
-            <hr className="mb-5" />
-            <Markdown remarkPlugins={[remarkGfm]} className="prose mb-8 text-justify">
-              {markdown}
-            </Markdown>
-            {title && <h1>Thank you for reading 😁</h1>}
-          </div>
-        </div>
-      </div>
-    </>
+    <div>
+      <BlogById id={params.id} />
+    </div>
   );
 };
 
-export default Preview;
+export default Page;
