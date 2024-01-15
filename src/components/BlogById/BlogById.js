@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation"; // Corrected import for Next.js rou
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const BlogById = ({id}) => {
+const BlogById = ({ id }) => {
   const router = useRouter();
   const fetchFailed = () => toast.error("No Blog with this Name");
   const [markdown, setMarkdown] = useState("Loading...");
@@ -51,7 +51,7 @@ const BlogById = ({id}) => {
     <>
       <ToastContainer />
       <div className="flex md:justify-center px-4 md:p-0">
-        <div className="md:w-[700px] flex flex-col font-medium">
+        <div className="md:w-[700px] flex flex-col font-medium w-full">
           <div>
             <h1 className="text-[28px] md:text-[48px] md:leading-tight font-bold">
               {title}

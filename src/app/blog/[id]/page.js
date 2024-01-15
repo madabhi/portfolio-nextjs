@@ -11,11 +11,11 @@ export async function generateMetadata({ params }) {
     title: product.title,
     description: product.content,
   };
-} 
+}
 
 const Page = ({ params }) => {
   return (
-    <div>
+    <div className="w-full ">
       <BlogById id={params.id} />
     </div>
   );
