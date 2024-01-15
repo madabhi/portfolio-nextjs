@@ -65,10 +65,16 @@ export async function PUT(req) {
     }
 
     // Update the blog fields
-    existingBlog.title = title;
-    existingBlog.tag = tag;
-    existingBlog.content = content;
-    existingBlog.blogId = blogId;
+    if (existingBlog.title != title) {
+      existingBlog.title = title;
+      existingBlog.tag = tag;
+      existingBlog.content = content;
+      existingBlog.blogId = blogId;
+    } else {
+      existingBlog.title = title;
+      existingBlog.tag = tag;
+      existingBlog.content = content;
+    }
 
     // Save the updated blog
     await existingBlog.save();
