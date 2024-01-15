@@ -70,7 +70,7 @@ const BlogById = ({ id }) => {
             <hr className="mb-5" />
             <Markdown
               remarkPlugins={[remarkGfm]}
-              className="prose mb-8 md:text-justify"
+              className="prose mb-8 "
             >
               {markdown}
             </Markdown>
