@@ -56,7 +56,7 @@ const BlogById = ({ id }) => {
             <h1 className="text-[28px] md:text-[48px] md:leading-tight font-bold">
               {title}
             </h1>
-            <div>
+            <div className="flex gap-4 mb-3 items-center">
               <span
                 className="font-semibold bg-gray-400 text-light rounded-md w-auto text-center text-sm p-1"
                 style={{ width: `${tag.length * 10 + 10}px` }}
@@ -74,7 +74,7 @@ const BlogById = ({ id }) => {
             >
               {markdown}
             </Markdown>
-            {title && <h1>Thank you for reading 😁</h1>}
+            <h1 className="mb-5">Thank you for reading 😁.</h1>
           </div>
         </div>
       </div>
