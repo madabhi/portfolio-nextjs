@@ -166,13 +166,13 @@ const page = () => {
           <div className="flex flex-col  justify-evenly">
             <div className="flex flex-col justify-start">
               <div className="px-4 md:px-0">
-                <h1 className="text-2xl font-semibold ">Frontend Skills</h1>
+                <h1 className="text-2xl font-semibold mb-2">Frontend Skills</h1>
                 <div
-                  className={`grid md:grid-cols-8 grid-cols-2 md:gap-8 gap-4`}
+                  className={`grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4`}
                 >
                   {Object.entries(FrontSet).map(([skill, imagePath]) => (
                     <div
-                      className="flex flex-col justify-center items-center skills-shadow rounded py-4 px-4 md:px-0"
+                      className="flex flex-col justify-center items-center skills-shadow rounded py-2 px-4 md:px-0"
                       key={imagePath}
                     >
                       <Image
@@ -188,7 +188,7 @@ const page = () => {
               </div>
             </div>
             <div className="flex flex-col justify-start px-4 md:px-0 mt-10">
-              <h1 className="text-2xl font-semibold ">Backend Skills</h1>
+              <h1 className="text-2xl font-semibold mb-2">Backend Skills</h1>
               <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4">
                 {Object.entries(BackendSet).map(([skill, imagePath]) => (
                   <div
@@ -197,8 +197,8 @@ const page = () => {
                   >
                     <Image
                       src={imagePath}
-                      height={140}
-                      width={140}
+                      height={90}
+                      width={90}
                       alt="skills image"
                     ></Image>
                     {/* <p className="font-medium">{skill}</p> */}
@@ -207,7 +207,7 @@ const page = () => {
               </div>
             </div>
             <div className="flex flex-col justify-start px-4 md:px-0 mt-10">
-              <h1 className="text-2xl font-semibold ">Database</h1>
+              <h1 className="text-2xl font-semibold mb-2">Database</h1>
               <div className="grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4 ">
                 {Object.entries(dbSet).map(([skill, imagePath]) => (
                   <div
