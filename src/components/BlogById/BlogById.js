@@ -68,13 +68,10 @@ const BlogById = ({ id }) => {
               </span>
             </div>
             <hr className="mb-5" />
-            <Markdown
-              remarkPlugins={[remarkGfm]}
-              className="prose mb-8 "
-            >
+            <Markdown remarkPlugins={[remarkGfm]} className="prose mb-8 ">
               {markdown}
             </Markdown>
-            <h1 className="mb-5">Thank you for reading 😁.</h1>
+            {title && <h1 className="mb-5">Thank you for reading 😁.</h1>}
           </div>
         </div>
       </div>
