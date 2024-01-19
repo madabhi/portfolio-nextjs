@@ -6,6 +6,8 @@ import React from "react";
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 const mont = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
@@ -57,13 +59,6 @@ const Projects = () => {
   const featuredProjects = projects.filter((project) => project.isFeatured);
   const otherProjects = projects.filter((project) => !project.isFeatured);
 
-  if (loading) {
-    return (
-      <div className="text-center">
-        <p>Loading...</p>
-      </div>
-    );
-  }
   const renderFeaturedProjects = () => {
     return featuredProjects.map((project, key) => (
       <div className=" col-span-2" key={key}>
@@ -195,7 +190,7 @@ const Projects = () => {
       <div
         className={` ${mont.variable} font-mont flex-grow-1 parent flex  justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
       >
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-12">
           <motion.h1
             variants={headingAnimation}
             initial="initial"
@@ -217,9 +212,21 @@ const Projects = () => {
           </motion.h1>
         </div>
 
-        <div className="  grid grid-cols-1 h-full md:grid-cols-2 grid-flow-row gap-y-28 gap-x-28">
-          {renderFeaturedProjects()}
-          {renderOtherProjects()}
+        <div className="  grid grid-cols-1 h-full md:grid-cols-2 grid-flow-row gap-y-20 gap-x-28">
+          {projects.length ? (
+            <>
+              {renderFeaturedProjects()}
+              {renderOtherProjects()}
+            </>
+          ) : (
+            <>
+              <div className="col-span-2">
+                <Skeleton height={250} width={1100} />
+                <Skeleton height={250} width={1100} />
+                <Skeleton height={250} width={1100} />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>

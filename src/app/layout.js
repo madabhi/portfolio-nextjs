@@ -3,6 +3,7 @@ import "./globals.css";
 import NavBar from "@/components/Navbar/NavBar";
 import Footer from "@/components/Footer";
 import { SessionProvider } from "next-auth/react";
+import { SkeletonTheme } from "react-loading-skeleton";
 const mont = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -29,11 +30,13 @@ export default function RootLayout({
       <body
         className={`flex flex-col min-h-screen justify-between  ${mont.className}`}
       >
-        <div className=" md:px-60 ">
-          <NavBar />
-          <div className="flex-grow">{children}</div>
-        </div>
-        <Footer />
+        <SkeletonTheme color="##f0eded" highlightColor="#dedcde">
+          <div className=" md:px-60 ">
+            <NavBar />
+            <div className="flex-grow">{children}</div>
+          </div>
+          <Footer />
+        </SkeletonTheme>
       </body>
     </html>
   );

@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Markdown from "react-markdown";
-
+import Skeleton from "react-loading-skeleton";
+import BlogSkeleton from "../BlogSkeleton/BlogSkeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 const Card = ({ key, item }) => {
   const { title, tag, content, blogId, date } = item;
 
@@ -68,9 +70,11 @@ const BlogHome = () => {
     <>
       <div className="px-4 md:px-0 mb-4 ">
         <div className="  grid grid-cols-1 h-full md:grid-cols-3 grid-flow-row gap-y-5 gap-x-12">
-          {blogData.length > 0
-            ? blogData.map((item, idx) => <Card key={idx} item={item} />)
-            : "Loading..."}
+          {blogData.length > 0 ? (
+            blogData.map((item, idx) => <Card key={idx} item={item} />)
+          ) : (
+            <BlogSkeleton />
+          )}
         </div>
       </div>
     </>
