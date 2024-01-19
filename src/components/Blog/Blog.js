@@ -26,9 +26,9 @@ const Card = ({ key, item }) => {
         </span>
 
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          <Markdown className="">
+          {/* <Markdown className="">
             {content.length > 10 ? `${content.substring(0, 80)}...` : content}
-          </Markdown>
+          </Markdown> */}
         </p>
         <Link
           href={`/blog/${blogId}`}

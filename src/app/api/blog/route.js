@@ -33,11 +33,21 @@ export async function POST(req) {
 }
 
 export async function GET(req) {
-  // const { title, tag, content, date } = await req.json();
-  // await connect();
-  const resp = await Blog.find().sort({ date: -1 });
+ try {
 
-  return NextResponse.json(resp, { status: 200 });
+   const resp = await Blog.find(
+     {},
+     { title: 1, _id: 1, blogId: 1, date: 1 }
+   ).sort({ date: -1 });
+
+   return NextResponse.json(resp, { status: 200 });
+ } catch (error) {
+   console.error("Error fetching blogs:", error);
+   return NextResponse.json(
+     { error: "Internal Server Error" },
+     { status: 500 }
+   );
+ }
 }
 
 export async function PUT(req) {
