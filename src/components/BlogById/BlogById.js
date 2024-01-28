@@ -7,11 +7,12 @@ import remarkGfm from "remark-gfm";
 import { useRouter } from "next/navigation"; // Corrected import for Next.js router
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BlogByIdSkeleton from "../BlogByIdSkeleton/BlogByIdSkeleton";
 
 const BlogById = ({ id }) => {
   const router = useRouter();
   const fetchFailed = () => toast.error("No Blog with this Name");
-  const [markdown, setMarkdown] = useState("Loading...");
+  const [markdown, setMarkdown] = useState("");
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
   const [formattedDate, setFormattedDate] = useState("");
@@ -57,20 +58,20 @@ const BlogById = ({ id }) => {
               {title}
             </h1>
             <div className="flex gap-4 mb-3 items-center">
-              <span
-                className="font-semibold bg-gray-400 text-light rounded-md w-auto text-center text-sm p-1"
-                style={{ width: `${tag.length * 10 + 10}px` }}
-              >
-                {tag}
-              </span>
+              {tag && <span className="text-sm text-gray-500">{tag}</span>}
               <span>
                 <p className="text-sm">{formattedDate}</p>
               </span>
             </div>
             <hr className="mb-5" />
-            <Markdown remarkPlugins={[remarkGfm]} className="prose mb-8 ">
-              {markdown}
-            </Markdown>
+            {title ? (
+              <Markdown remarkPlugins={[remarkGfm]} className="prose mb-8 ">
+                {markdown}
+              </Markdown>
+            ) : (
+              <BlogByIdSkeleton />
+            )}
+
             {title && <h1 className="mb-5">Thank you for reading 😁.</h1>}
           </div>
         </div>
