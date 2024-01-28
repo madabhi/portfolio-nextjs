@@ -58,7 +58,7 @@ const BlogById = ({ id }) => {
               {title}
             </h1>
             <div className="flex gap-4 mb-3 items-center">
-              {tag && <span className="text-sm text-gray-500">{tag}</span>}
+              {tag && <span className="text-sm text-white bg-slate-500 p-1 rounded-lg">{tag}</span>}
               <span>
                 <p className="text-sm">{formattedDate}</p>
               </span>
