@@ -68,7 +68,7 @@ const BlogHome = () => {
   }, []);
   return (
     <>
-      <div className="px-4 md:px-0 mb-4 flex justify-between">
+      <div className="px-4 md:px-0 mb-4 ">
         <div className="  grid grid-cols-1 h-full md:grid-cols-4 grid-flow-row gap-y-5 gap-x-12">
           {blogData.length > 0 ? (
             blogData.map((item, idx) => <Card key={idx} item={item} />)

@@ -4,12 +4,14 @@ import "react-loading-skeleton/dist/skeleton.css";
 const BlogSkeleton = () => {
   return (
     <>
-      <Skeleton  height={250} />
-      <Skeleton  height={250} />
-      <Skeleton  height={250} />
-      <Skeleton  height={250} />
-      <Skeleton  height={250} />
-      
+      <Skeleton height={250} />
+      <Skeleton height={250} />
+      <Skeleton height={250} />
+      <Skeleton height={250} />
+      <Skeleton height={250} />
+      <Skeleton height={250} />
+      <Skeleton height={250} />
+      <Skeleton height={250} />
     </>
   );
 };
