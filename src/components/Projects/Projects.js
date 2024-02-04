@@ -221,9 +221,9 @@ const Projects = () => {
           ) : (
             <>
               <div className="col-span-2">
-                <Skeleton height={250} width={1100} />
-                <Skeleton height={250} width={1100} />
-                <Skeleton height={250} width={1100} />
+                <Skeleton height={250} />
+                <Skeleton height={250} />
+                <Skeleton height={250} />
               </div>
             </>
           )}

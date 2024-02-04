@@ -47,12 +47,13 @@ export default function Home() {
                       </span>
                     </button>
                   </a>
-                  <a
+                  <Link
                     href="mailto:abhinavas430@gmail.com"
                     className="text-lg underline font-[500]"
+                    rel="noopener noreferrer"
                   >
                     Contact
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="w-full md:w-1/2 order-2">
