@@ -63,7 +63,7 @@ const Skill = ({ name, x, y }) => {
   );
 };
 
-const page = () => {
+const Page = () => {
   //
 
   //
@@ -79,7 +79,7 @@ const page = () => {
           {heading.split(" ").map((word, index) => (
             <motion.span
               key={word + " " + index}
-              className="md:text-[70px] text-[40px] font-[700] text-dark text-center inline-block "
+              className="md:text-7xl text-[2.5rem] font-[700] text-dark text-center inline-block "
               variants={wordAnimation}
               initial="initial"
               animate="animate"
@@ -107,7 +107,16 @@ const page = () => {
                 guiding peers through the fascinating realm of cloud computing.
                 Leading the
                 <strong> "Ikshana"</strong> team, we organize engaging technical
-                events, fostering innovation and collaboration on campus.
+                events, fostering innovation and collaboration on campus. My
+                passion lies in web development, from crafting seamless user
+                experiences to diving into the backend with Node.js. Proudly a
+                <strong> Microsoft Learn Student Ambassador Alpha</strong>, I
+                stay updated on the latest Microsoft technologies and actively
+                contribute to the tech community. Beyond the screen, I enjoy
+                exploring emerging technologies, sipping coffee, and tackling
+                coding challenges with an insatiable thirst for knowledge. Join
+                me on this thrilling journey of continuous learning and shaping
+                the ever-evolving landscape of technology.
               </p>
             </div>
             <div className="p-2 md:w-1/2 flex md:h-90 justify-center relative z-10">
@@ -125,17 +134,6 @@ const page = () => {
               </div>
             </div>
           </div>
-          <p className="text-justify text-md md:px-10 pb-8 px-2">
-            My passion lies in web development, from crafting seamless user
-            experiences to diving into the backend with Node.js. Proudly a
-            <strong> Microsoft Learn Student Ambassador Alpha</strong>, I stay
-            updated on the latest Microsoft technologies and actively contribute
-            to the tech community. Beyond the screen, I enjoy exploring emerging
-            technologies, sipping coffee, and tackling coding challenges with an
-            insatiable thirst for knowledge. Join me on this thrilling journey
-            of continuous learning and shaping the ever-evolving landscape of
-            technology.
-          </p>
         </div>
       </div>
 
@@ -232,4 +230,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -12,7 +12,7 @@ const mont = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
 });
-const heading = "Code to Experience !";
+const heading = "Some Achievements !";
 const MotionGithub = motion(GithubIcon);
 const MotionImage = motion(Image);
 
@@ -32,7 +32,7 @@ const headingAnimation = {
     },
   },
 };
-const Projects = () => {
+const Acheivements = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -56,8 +56,7 @@ const Projects = () => {
 
     fetchData();
   }, []);
-  const featuredProjects = projects.filter((project) => project.isFeatured);
-  const otherProjects = projects.filter((project) => !project.isFeatured);
+  const featuredProjects = projects.filter((project) => project.isAchievement);
 
   const renderFeaturedProjects = () => {
     return featuredProjects.map((project, key) => (
@@ -130,66 +129,48 @@ const Projects = () => {
     ));
   };
 
-  const renderOtherProjects = () => {
-    return otherProjects.map((project, key) => (
-      <div className="col-span-2 md:col-span-1 " key={key}>
-        <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
-          <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
-          <div className="flex   flex-col   w-full h-full  p-5">
-            <div className="relative  bg-light">
-              <MotionImage
-                src={
-                  project.projectImage
-                    ? project.projectImage
-                    : process.env.DEFAULT_PROJECT_IMAGE
-                }
-                object-fit="cover"
-                className="rounded-lg border-2 border-black !relative w-full h-[50%]"
-                fill={true}
-                whileHover={{
-                  scale: 1.01,
-                  transition: { duration: 0.2 },
-                }}
-              />
-            </div>
-            <div className="pl-1 flex flex-col gap-1 ">
-              <span>
-                <p className="text-md font-semibold text-pink-500">
-                  {project.category}
-                </p>
-              </span>
-              <h1 className="text-xl font-bold">{project.title}</h1>
-              <div className="flex items-center justify-start ">
-                <Link href={project.gitHubLink}>
-                  <button className="bg-dark text-light px-2 py-2 rounded-lg w-full items-center  flex">
-                    <motion.span
-                      whileHover={{ scale: 1.1 }}
-                      className="cursor-pointer"
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <GithubIcon
-                        height={25}
-                        width={25}
-                        className="w-12 mr-4"
-                        fill="white"
-                      />
-                    </motion.span>
-                    Visit Project
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    ));
-  };
-
   return (
     <>
-      <div
-        className={` ${mont.variable} font-mont flex-grow-1 parent flex  justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
-      >
+      {loading ? (
+        <div
+          className={` ${mont.variable} font-mont flex-grow-1 parent flex  justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
+        >
+          <div className="flex justify-center mb-12">
+            <motion.h1
+              variants={headingAnimation}
+              initial="initial"
+              animate="animate"
+              className="inline-block w-full text-center text-dark capitalize"
+            >
+              {heading.split(" ").map((word, index) => (
+                <motion.span
+                  key={word + " " + index}
+                  className="md:text-7xl text-[2.5rem] font-[700] text-dark text-center inline-block "
+                  variants={wordAnimation}
+                  initial="initial"
+                  animate="animate"
+                >
+                  {word}&nbsp;
+                </motion.span>
+              ))}
+            </motion.h1>
+          </div>
+
+          <div className="  grid grid-cols-1 h-full md:grid-cols-2 grid-flow-row gap-y-20 gap-x-28">
+            {projects.length ? (
+              <>{renderFeaturedProjects()}</>
+            ) : (
+              <>
+                <div className="col-span-2">
+                  <Skeleton height={250} />
+                  <Skeleton height={250} />
+                  <Skeleton height={250} />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      ) : (
         <div className="flex justify-center mb-12">
           <motion.h1
             variants={headingAnimation}
@@ -197,10 +178,10 @@ const Projects = () => {
             animate="animate"
             className="inline-block w-full text-center text-dark capitalize"
           >
-            {heading.split(" ").map((word, index) => (
+            {"No Achievement Added !".split(" ").map((word, index) => (
               <motion.span
                 key={word + " " + index}
-                className="md:text-7xl text-[2.5rem] font-[700] text-dark text-center inline-block"
+                className="md:text-7xl text-[2.5rem] font-[700] text-dark text-center inline-block "
                 variants={wordAnimation}
                 initial="initial"
                 animate="animate"
@@ -210,26 +191,9 @@ const Projects = () => {
             ))}
           </motion.h1>
         </div>
-
-        <div className="  grid grid-cols-1 h-full md:grid-cols-2 grid-flow-row gap-y-20 gap-x-28">
-          {projects.length ? (
-            <>
-              {renderFeaturedProjects()}
-              {renderOtherProjects()}
-            </>
-          ) : (
-            <>
-              <div className="col-span-2">
-                <Skeleton height={250} />
-                <Skeleton height={250} />
-                <Skeleton height={250} />
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+      )}
     </>
   );
 };
 
-export default Projects;
+export default Acheivements;
