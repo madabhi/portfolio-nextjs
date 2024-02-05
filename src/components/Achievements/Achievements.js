@@ -36,7 +36,7 @@ const Acheivements = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [achievements, setAchievements] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,6 +47,7 @@ const Acheivements = () => {
 
         const data = await response.json();
         setProjects(data);
+        setAchievements(data.filter((project) => project.isAchievement));
       } catch (error) {
         setError(error.message);
       } finally {
@@ -54,12 +55,12 @@ const Acheivements = () => {
       }
     };
 
+    console.log(achievements);
     fetchData();
   }, []);
-  const featuredProjects = projects.filter((project) => project.isAchievement);
 
   const renderFeaturedProjects = () => {
-    return featuredProjects.map((project, key) => (
+    return achievements.map((project, key) => (
       <div className=" col-span-2" key={key}>
         <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex  ">
           <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
@@ -79,14 +80,6 @@ const Acheivements = () => {
               </motion.div>
             </div>
             <div className="h-full md:w-1/2 flex flex-col gap-2 md:pl-4 justify-center mt-4 md:mt-0">
-              <span className="font-semibold bg-pink-500 text-light rounded-md w-40 text-center">
-                {project.isAchievement ? "Achievement" : "Featured Project"}
-              </span>
-              <span>
-                <p className="text-md font-semibold text-pink-500">
-                  {project.category}
-                </p>
-              </span>
               <h1 className="text-2xl font-bold heading-clamp">
                 {project.title}
               </h1>
@@ -131,7 +124,7 @@ const Acheivements = () => {
 
   return (
     <>
-      {loading ? (
+      {achievements.length > 0 ? (
         <div
           className={` ${mont.variable} font-mont flex-grow-1 parent flex  justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
         >
