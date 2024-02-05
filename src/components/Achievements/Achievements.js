@@ -85,9 +85,7 @@ const Acheivements = () => {
               </h1>
               <p className="text-sm">{project.description}</p>
               {project.isAchievement ? (
-                <div className="flex justify-start items-center">
-                  {/* Content for the "else" condition */}
-                </div>
+                <div className="flex justify-start items-center"></div>
               ) : (
                 <div className="flex justify-start items-center">
                   <Link href={project.gitHubLink}>
@@ -124,46 +122,9 @@ const Acheivements = () => {
 
   return (
     <>
-      {achievements.length > 0 ? (
-        <div
-          className={` ${mont.variable} font-mont flex-grow-1 parent flex  justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
-        >
-          <div className="flex justify-center mb-12">
-            <motion.h1
-              variants={headingAnimation}
-              initial="initial"
-              animate="animate"
-              className="inline-block w-full text-center text-dark capitalize"
-            >
-              {heading.split(" ").map((word, index) => (
-                <motion.span
-                  key={word + " " + index}
-                  className="md:text-7xl text-[2.5rem] font-[700] text-dark text-center inline-block "
-                  variants={wordAnimation}
-                  initial="initial"
-                  animate="animate"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-            </motion.h1>
-          </div>
-
-          <div className="  grid grid-cols-1 h-full md:grid-cols-2 grid-flow-row gap-y-20 gap-x-28">
-            {projects.length ? (
-              <>{renderFeaturedProjects()}</>
-            ) : (
-              <>
-                <div className="col-span-2">
-                  <Skeleton height={250} />
-                  <Skeleton height={250} />
-                  <Skeleton height={250} />
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      ) : (
+      <div
+        className={` ${mont.variable} font-mont flex-grow-1 parent flex  justify-center w-full min-h-full  flex-col mb-20 p-4 pr-6 md:p-0`}
+      >
         <div className="flex justify-center mb-12">
           <motion.h1
             variants={headingAnimation}
@@ -171,7 +132,7 @@ const Acheivements = () => {
             animate="animate"
             className="inline-block w-full text-center text-dark capitalize"
           >
-            {"No Achievement Added !".split(" ").map((word, index) => (
+            {heading.split(" ").map((word, index) => (
               <motion.span
                 key={word + " " + index}
                 className="md:text-7xl text-[2.5rem] font-[700] text-dark text-center inline-block "
@@ -184,7 +145,21 @@ const Acheivements = () => {
             ))}
           </motion.h1>
         </div>
-      )}
+
+        <div className="  grid grid-cols-1 h-full md:grid-cols-2 grid-flow-row gap-y-20 gap-x-28">
+          {projects.length ? (
+            <>{renderFeaturedProjects()}</>
+          ) : (
+            <>
+              <div className="col-span-2">
+                <Skeleton height={250} />
+                <Skeleton height={250} />
+                <Skeleton height={250} />
+              </div>
+            </>
+          )}
+        </div>
+      </div>
     </>
   );
 };
