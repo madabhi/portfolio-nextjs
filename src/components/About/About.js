@@ -96,7 +96,7 @@ const Page = () => {
           <div className="md:h-[103%]  w-[101%] rounded-[30px] bg-black -z-10 absolute hidden md:block"></div>
           <div className="md:flex md:p-8 md:py-4 relative w-full flex flex-col gap-x-10 md:flex-row ">
             <div className="bio  md:w-1/2 flex justify-start flex-col gap-4 z-10 order-1 md:order-2 px-2 md:px-0">
-              <h1 className="text-2xl font-bold text-[#515151]">Biography</h1>
+              <h1 className="text-2xl font-bold text-[#515151]">About Me</h1>
               <p className="text-justify text-md ">
                 Hi, I'm <strong>Abhinav Singh</strong>, a Computer Science and
                 Engineering student at Sagar Institute of Science and
@@ -119,8 +119,8 @@ const Page = () => {
                 the ever-evolving landscape of technology.
               </p>
             </div>
-            <div className="p-2 md:w-1/2 flex md:h-90 justify-center relative z-10">
-              <div className="border-black border-2 border-b-8 border-r-8 rounded-2xl relative bg-light">
+            <div className="p-2 md:w-1/2 flex  justify-center h-fit  z-10">
+              <div className="border-black border-2 border-b-8 border-r-8 rounded-2xl  bg-light h-auto">
                 <div className="z-1 p-4">
                   <MotionImage
                     src="/images/abhinav.jpg"
