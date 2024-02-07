@@ -5,7 +5,7 @@ export async function GET() {
     const resp = await ProjectModel.find({ isAchievement: true }).sort({
       date: -1,
     });
-    console.log(resp)
+    console.log(resp);
     return NextResponse.json(resp, { status: 200 });
   } catch (error) {
     console.error(error);
