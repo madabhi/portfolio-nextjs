@@ -152,7 +152,7 @@ const AddProject = ({ params }) => {
               </label>
               <input
                 type="text"
-                required
+                {...(!isAchievement ? { required: true } : {})}
                 placeholder="Enter the link to your GitHub repository"
                 className="w-full bg-white rounded-md border-gray-300 text-black px-2 py-1"
                 id="description"
@@ -171,7 +171,7 @@ const AddProject = ({ params }) => {
                   placeholder="e.g. Web Development, Android, etc."
                   className="w-full bg-white rounded-md border-gray-300 text-black px-2 py-1"
                   id="emotions"
-                  required
+                  {...(!isAchievement ? { required: true } : {})}
                   value={category}
                   type="text"
                   onChange={(e) => {

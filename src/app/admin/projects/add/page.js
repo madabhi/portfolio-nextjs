@@ -21,7 +21,6 @@ const AddProject = () => {
   const [isFeatured, setIsFeatured] = useState(false);
   const [image, setImage] = useState("");
   const [isAchievement, setIsAchievement] = useState(false);
-  const [isRequired, setIsRequired] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -146,7 +145,6 @@ const AddProject = () => {
                     id="isFeatured"
                     className=""
                     onChange={() => {
-                      setIsAchievement(!isAchievement);
                       setIsAchievement(!isAchievement);
                     }}
                   />
