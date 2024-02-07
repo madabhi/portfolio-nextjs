@@ -40,26 +40,34 @@ const Acheivements = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/projects");
+        const response = await fetch("/api/achievements");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
 
         const data = await response.json();
-        setProjects(data);
-        setAchievements(data.filter((project) => project.isAchievement));
+        if (data.length) {
+          setProjects(data);
+          setAchievements(data);
+        }
+        console.log(data);
+        setLoading(false);
       } catch (error) {
         setError(error.message);
-      } finally {
-        setLoading(false);
       }
     };
 
-    console.log(achievements);
     fetchData();
   }, []);
 
   const renderFeaturedProjects = () => {
+    if (achievements.length === 0) {
+      return (
+        <>
+          <p className="">No Achievements Added</p>
+        </>
+      );
+    }
     return achievements.map((project, key) => (
       <div className=" col-span-2" key={key}>
         <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex  ">
@@ -147,7 +155,7 @@ const Acheivements = () => {
         </div>
 
         <div className="  grid grid-cols-1 h-full md:grid-cols-2 grid-flow-row gap-y-20 gap-x-28">
-          {projects.length ? (
+          {!loading ? (
             <>{renderFeaturedProjects()}</>
           ) : (
             <>
