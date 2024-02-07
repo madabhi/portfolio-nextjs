@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="h-16 w-full bg-dark  flex items-center justify-center">
+    <div className="h-16 w-full bg-dark  flex items-center justify-center rounded">
       <h3 className="text-light  bg-dark left text-center flex items-center justify-center">
         <p className="font-semibold "> Made with ❤️ by Abhinav Singh</p>
       </h3>
