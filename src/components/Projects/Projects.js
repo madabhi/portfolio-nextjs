@@ -70,7 +70,8 @@ const Projects = () => {
                 <MotionImage
                   src={project.projectImage}
                   object-fit="cover"
-                  className="rounded-lg border-2 border-black !relative w-full h-auto"
+                  className="rounded-lg border-2 border-black !relative w-full h-full"
+                  style={{ aspectRatio: "16/9" }}
                   fill={true}
                   whileHover={{
                     scale: 1.01,
@@ -144,7 +145,8 @@ const Projects = () => {
                     : process.env.DEFAULT_PROJECT_IMAGE
                 }
                 object-fit="cover"
-                className="rounded-lg border-2 border-black !relative w-full h-[50%]"
+                className="rounded-lg border-2 border-black !relative w-full h-full"
+                style={{ aspectRatio: "16/9" }}
                 fill={true}
                 whileHover={{
                   scale: 1.01,

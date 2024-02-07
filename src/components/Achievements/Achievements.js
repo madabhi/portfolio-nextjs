@@ -78,7 +78,8 @@ const Acheivements = () => {
                 <MotionImage
                   src={project.projectImage}
                   object-fit="cover"
-                  className="rounded-lg border-2 border-black !relative w-full h-auto"
+                  className="rounded-lg border-2 border-black !relative w-full h-full"
+                  style={{ aspectRatio: "16/9" }}
                   fill={true}
                   whileHover={{
                     scale: 1.01,
