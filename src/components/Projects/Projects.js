@@ -40,7 +40,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/projects");
+        const response = await fetch("/api/projects/front");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -72,6 +72,8 @@ const Projects = () => {
                   object-fit="cover"
                   className="rounded-lg border-2 border-black !relative w-full h-full"
                   style={{ aspectRatio: "16/9" }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  alt={project.title}
                   fill={true}
                   whileHover={{
                     scale: 1.01,
@@ -148,6 +150,8 @@ const Projects = () => {
                 className="rounded-lg border-2 border-black !relative w-full h-full"
                 style={{ aspectRatio: "16/9" }}
                 fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                alt={project.title}
                 whileHover={{
                   scale: 1.01,
                   transition: { duration: 0.2 },

@@ -2,8 +2,8 @@ import mongoose, { Schema } from "mongoose";
 const Project = new Schema({
   title: { type: String, required: true },
   description: String,
-  category: { type: String, required: true },
-  gitHubLink: { type: String, required: true },
+  category: { type: String, required: false },
+  gitHubLink: { type: String, required: false },
   projectId: { type: String, required: true },
   projectImage: {
     type: String,

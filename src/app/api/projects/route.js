@@ -95,7 +95,9 @@ export async function GET(req) {
 
   if (!id) {
     try {
-      const resp = await ProjectModel.find().sort({ date: -1 });
+      const resp = await ProjectModel.find().sort({
+        date: -1,
+      });
       return NextResponse.json(resp, { status: 200 });
     } catch (error) {
       console.error(error);
@@ -127,8 +129,15 @@ export async function GET(req) {
 
 // ------------------PUT METHOD ------------------
 export async function PUT(req) {
-  const { title, description, category, gitHubLink, isFeatured, dbId,isAchievement  } =
-    await req.json();
+  const {
+    title,
+    description,
+    category,
+    gitHubLink,
+    isFeatured,
+    dbId,
+    isAchievement,
+  } = await req.json();
   console.log(dbId);
   try {
     await connect();

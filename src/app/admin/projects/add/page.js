@@ -21,6 +21,7 @@ const AddProject = () => {
   const [isFeatured, setIsFeatured] = useState(false);
   const [image, setImage] = useState("");
   const [isAchievement, setIsAchievement] = useState(false);
+  const [isRequired, setIsRequired] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,10 +91,11 @@ const AddProject = () => {
               </label>
               <input
                 type="text"
-                required
+                {...(!isAchievement ? { required: true } : {})}
                 placeholder="Enter the link to your GitHub repository"
                 className="w-full bg-white rounded-md border-gray-300 text-black px-2 py-1"
                 id="description"
+                value={gitHubLink}
                 onChange={(e) => {
                   setGitHubLink(e.target.value);
                 }}
@@ -108,7 +110,8 @@ const AddProject = () => {
                   placeholder="e.g. Web Development, Android, etc."
                   className="w-full bg-white rounded-md border-gray-300 text-black px-2 py-1"
                   id="emotions"
-                  required
+                  value={category}
+                  {...(!isAchievement ? { required: true } : {})}
                   type="text"
                   onChange={(e) => {
                     setCategory(e.target.value);
@@ -125,6 +128,7 @@ const AddProject = () => {
                     name="isFeatured"
                     id="isFeatured"
                     className=""
+                    value={isFeatured}
                     onChange={() => {
                       setIsFeatured(!isFeatured);
                     }}
@@ -142,6 +146,7 @@ const AddProject = () => {
                     id="isFeatured"
                     className=""
                     onChange={() => {
+                      setIsAchievement(!isAchievement);
                       setIsAchievement(!isAchievement);
                     }}
                   />
