@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <div
-        className={`${mont.variable} font-mont w-full h-full md:h-screen overflow-hidden`}
+        className={`${mont.variable} font-mont w-full h-full  overflow-hidden`}
       >
         <main className="flex flex-col-reverse md:flex-row items-center text-dark w-full h-full">
           <Layout className="pt-0 md:pt-0 !p-2 !bg-transparent">
