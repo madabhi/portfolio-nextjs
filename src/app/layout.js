@@ -2,7 +2,6 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Navbar/NavBar";
 import Footer from "@/components/Footer";
-import { SessionProvider } from "next-auth/react";
 import { SkeletonTheme } from "react-loading-skeleton";
 const mont = Montserrat({ subsets: ["latin"] });
 
@@ -35,8 +34,8 @@ export default function RootLayout({
         className={`flex max-w-screen-xl md:mx-auto flex-col min-h-screen justify-between  ${mont.className}`}
       >
         <SkeletonTheme color="##f0eded" highlightColor="#dedcde">
-            <NavBar />
-            <div className="flex-grow">{children}</div>
+          <NavBar />
+          <div className="flex-grow">{children}</div>
           <Footer />
         </SkeletonTheme>
       </body>
