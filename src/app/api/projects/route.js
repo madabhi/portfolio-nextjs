@@ -18,8 +18,9 @@ export async function POST(req) {
   const gitHubLink = data.get("gitHubLink");
   const isFeatured = data.get("isFeatured");
   const image = data.get("image");
-  const isAchievement = data.get("isAchievement");
-
+  console.log(data);
+  console.log(isFeatured);
+  NextResponse.json({ status: 200, isFeatured });
   let date = new Date();
   let projectId = title.replace(/\s/g, "-").toLowerCase();
   let hours = date.getHours();
@@ -29,16 +30,6 @@ export async function POST(req) {
 
   const byteImage = await image.arrayBuffer();
   const buffer = Buffer.from(byteImage);
-  // const imagePath = `./public/images/projects/${projectId}+${image.name}`;
-  // await writeFile(imagePath, buffer);
-  // const projectImage = imagePath.slice(8);
-
-  // const blobName = `${projectId}-${uuidv4()}-${image.name}`;
-  // const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-  // const uploadBlobResponse = await blockBlobClient.upload(
-  //   buffer,
-  //   buffer.length
-  // );
 
   const imageName = `${projectId}-${image.name.split(" ").join("-")}`;
   const storageRef = ref(storage, imageName);
@@ -67,20 +58,42 @@ export async function POST(req) {
       title,
       description,
       category,
-      isAchievement,
       gitHubLink,
       imageRef,
       isFeatured,
       projectId,
       projectImage,
     });
-    return NextResponse.json({
-      status: 200,
-      success: true,
-      message: "Project added successfully",
-    });
+    if (Project) {
+      return NextResponse.json({
+        status: 200,
+        success: true,
+        message: "Project added successfully",
+      });
+    } else {
+      const desertRef = ref(storage, imageRef);
+
+      deleteObject(desertRef)
+        .then(() => {
+          console.log("File Deleted");
+        })
+        .catch((error) => {});
+
+      return NextResponse.json({
+        status: 500,
+        message: "An error occured",
+      });
+    }
   } catch (error) {
     console.error(error);
+    const desertRef = ref(storage, imageRef);
+
+    deleteObject(desertRef)
+      .then(() => {
+        console.log("File Deleted");
+      })
+      .catch((error) => {});
+
     return NextResponse.json({
       status: 500,
       message: "An error occured",
@@ -119,6 +132,7 @@ export async function GET(req) {
       return NextResponse.json(project, { status: 200 });
     } catch (error) {
       console.error(error);
+
       return NextResponse.json({
         status: 500,
         message: "An error occurred",
@@ -169,6 +183,7 @@ export async function PUT(req) {
     });
   } catch (error) {
     console.error(error);
+
     return NextResponse.json({
       status: 500,
       message: "An error occured",

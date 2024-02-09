@@ -1,12 +1,12 @@
 "use client";
 import { set } from "mongoose";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import AdminNav from "@/components/AdminNav/AdminNav";
 
-const AddProject = () => {
+const AddAchievement = () => {
   const loadingNotify = () =>
     toast.success("Project Added", {
       icon: "🚀",
@@ -16,9 +16,6 @@ const AddProject = () => {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [gitHubLink, setGitHubLink] = useState("");
-  const [isFeatured, setIsFeatured] = useState(false);
   const [image, setImage] = useState("");
 
   const handleSubmit = async (e) => {
@@ -29,13 +26,7 @@ const AddProject = () => {
 
       formData.append("title", title);
       formData.append("description", description);
-      console.log(isFeatured, category, gitHubLink);
-      formData.append("category", category);
-      formData.append("gitHubLink", gitHubLink);
-      formData.append("isFeatured", isFeatured);
-      console.log(formData);
-
-      let fetchUrl = "/api/projects";
+      let fetchUrl = "/api/achievements";
 
       const response = await fetch(fetchUrl, {
         method: "POST",
@@ -45,16 +36,13 @@ const AddProject = () => {
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
-      console.log(response);
+
       loadingNotify();
       setTitle("");
       setDescription("");
-      setCategory("");
-      setGitHubLink("");
-      setIsFeatured(false);
 
       setTimeout(() => {
-        router.push("/admin/projects");
+        router.push("/admin/achievements");
       }, 1500);
     } catch (error) {
       errorNotify();
@@ -86,60 +74,7 @@ const AddProject = () => {
                 }}
               />
             </div>
-            <div className="mt-4">
-              <label className="text-black" htmlFor="description">
-                GitHub Link
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="Enter the link to your GitHub repository"
-                className="w-full bg-white rounded-md border-gray-300 text-black px-2 py-1"
-                id="description"
-                value={gitHubLink}
-                name="githubLink"
-                onChange={(e) => {
-                  setGitHubLink(e.target.value);
-                }}
-              />
-            </div>
-            <div className="mt-4 flex flex-row space-x-2">
-              <div className="flex-1">
-                <label className="text-black" htmlFor="category">
-                  Category
-                </label>
-                <input
-                  placeholder="e.g. Web Development, Android, etc."
-                  className="w-full bg-white rounded-md border-gray-300 text-black px-2 py-1"
-                  id="category"
-                  value={category}
-                  required
-                  name="category"
-                  type="text"
-                  onChange={(e) => {
-                    console.log(category);
-                    setCategory(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="flex-1 flex items-end md:pl-8 md:gap-4">
-                <label className="text-black" htmlFor="isFeatured">
-                  Featured
-                </label>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="isFeatured"
-                    id="isFeatured"
-                    className=""
-                    value={isFeatured}
-                    onChange={() => {
-                      setIsFeatured(!isFeatured);
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
+
             <div className="mt-3">
               <label className="text-black" htmlFor="image">
                 Project Image: &nbsp;
@@ -163,7 +98,7 @@ const AddProject = () => {
                 className="w-full bg-white rounded-md border-gray-300 text-black px-2 py-1 h-48"
                 id="story-output"
                 defaultValue={""}
-                {...(isFeatured ? { required: true } : {})}
+                required
                 onChange={(e) => {
                   setDescription(e.target.value);
                 }}
@@ -184,4 +119,4 @@ const AddProject = () => {
   );
 };
 
-export default AddProject;
+export default AddAchievement;

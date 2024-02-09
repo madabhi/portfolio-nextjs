@@ -12,6 +12,10 @@ const AdminNav = () => {
     },
 
     {
+      title: "Manage Acheivements",
+      path: "/admin/achievements",
+    },
+    {
       title: "Manage Blogs",
       path: "/admin/blogs",
     },

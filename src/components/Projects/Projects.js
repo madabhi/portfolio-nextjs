@@ -40,7 +40,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/projects/front");
+        const response = await fetch("/api/projects");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }

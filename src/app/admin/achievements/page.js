@@ -9,7 +9,7 @@ import AdminNav from "@/components/AdminNav/AdminNav";
 
 // -----------------------ADMIN PAGE-----------------------
 
-const Projects = () => {
+const EditAchievement = () => {
   const loadingNotify = () =>
     toast.success("Loading", {
       icon: "🚀",
@@ -36,7 +36,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/projects", {
+        const response = await fetch("/api/achievements", {
           method: "GET",
         });
 
@@ -62,7 +62,7 @@ const Projects = () => {
         <div className="max-w-screen-xl mx-auto px-4 md:px-0">
           <div className="max-w-md">
             <h1 className="text-gray-800 text-xl font-extrabold sm:text-3xl">
-              Manage Projects
+              Manage Achievements
             </h1>
             <p className="text-gray-600 mt-2 font-medium">
               Extend and automate your workflow by using integrations for your
@@ -71,10 +71,10 @@ const Projects = () => {
                 className="bg-dark text-light p-2 rounded-lg"
                 onClick={() => {
                   loadingNotify();
-                  router.push("/admin/projects/add");
+                  router.push("/admin/achievements/add");
                 }}
               >
-                Add Projects
+                Add Achievement
               </button>
             </p>
           </div>
@@ -97,7 +97,9 @@ const Projects = () => {
                       <p className="text-gray-600 text-sm">{item.tag}</p>
                       <p className="text-gray-600 text-sm">{formattedDate}</p>
                     </div>
-                    <Link href={`/admin/projects/edit/${item.projectId}`}>
+                    <Link
+                      href={`/admin/achievements/edit/${item.achievement_id}`}
+                    >
                       <button
                         onClick={loadingNotify}
                         className="text-gray-700 text-sm border rounded-lg px-3 py-2 duration-150 hover:bg-gray-100"
@@ -128,4 +130,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default EditAchievement;

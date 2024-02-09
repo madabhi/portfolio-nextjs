@@ -76,7 +76,7 @@ const Acheivements = () => {
             <div className=" md:justify-center flex md:w-1/2 ">
               <motion.div className="w-full ">
                 <MotionImage
-                  src={project.projectImage}
+                  src={project.image}
                   object-fit="cover"
                   className="rounded-lg border-2 border-black !relative w-full h-full"
                   style={{ aspectRatio: "16/9" }}
@@ -96,31 +96,7 @@ const Acheivements = () => {
               {project.isAchievement ? (
                 <div className="flex justify-start items-center"></div>
               ) : (
-                <div className="flex justify-start items-center">
-                  <Link href={project.gitHubLink}>
-                    <button className="bg-dark text-sm text-light p-1 md:px-2 md:py-2 rounded-lg w-full items-center  flex">
-                      <motion.span
-                        whileHover={{ scale: 1.1 }}
-                        className="cursor-pointer"
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <GithubIcon
-                          height={30}
-                          width={30}
-                          className="  hidden md:block"
-                          fill="white"
-                        />
-                        <GithubIcon
-                          height={30}
-                          width={30}
-                          className="md:w-12 w-6 mr-4 md:hidden"
-                          fill="white"
-                        />
-                      </motion.span>
-                      Visit Project
-                    </button>
-                  </Link>
-                </div>
+                <div className="flex justify-start items-center"></div>
               )}
             </div>
           </div>
