@@ -4,9 +4,9 @@ import React from "react";
 export async function generateMetadata({ params }) {
   const id = params.id;
   console.log(id);
-  const product = await fetch(
-    `https://abhinavsingh-steel.vercel.app/api/post?id=${id}`
-  ).then((res) => res.json());
+  const product = await fetch(`${process.env.SITE_URL}/api/post?id=${id}`).then(
+    (res) => res.json()
+  );
   return {
     title: product.title,
     description: product.content,
