@@ -4,7 +4,7 @@ import NavBar from "@/components/Navbar/NavBar";
 import Footer from "@/components/Footer";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { siteMetaData } from "@/utils/siteMetaData";
-const mont = Montserrat({ subsets: ["latin"] });
+const mont = Montserrat({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
   metadataBase: new URL(siteMetaData.siteUrl),
@@ -63,8 +63,6 @@ export const metadata = {
   },
   applicationName: siteMetaData.title,
   canonical: siteMetaData.siteUrl,
-  
-
 };
 
 export default function RootLayout({
