@@ -3,15 +3,68 @@ import "./globals.css";
 import NavBar from "@/components/Navbar/NavBar";
 import Footer from "@/components/Footer";
 import { SkeletonTheme } from "react-loading-skeleton";
+import { siteMetaData } from "@/utils/siteMetaData";
 const mont = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL(siteMetaData.siteUrl),
   title: {
-    default: "Abhinav Singh",
-    template: "%s | Abhinav Singh",
+    default: siteMetaData.title,
+    template: `%s | ${siteMetaData.title}`,
   },
-  description:
-    "Welcome to my digital space! I am Abhinav Singh, a passionate and innovative Computer Science and Engineering student at Sagar Institute of Science and Technology, Bhopal. As a Google Cloud Career Practitioner Facilitator and leader of the dynamic 'Ikshana' team in my college, I am deeply immersed in organizing and participating in technical events. My keen interest lies in the realms of web development and cloud computing. Explore my portfolio to witness my journey, projects, and the impact I strive to make in the ever-evolving world of technology. Join me as I embrace the exciting intersection of creativity and code!",
+  description: siteMetaData.description,
+  keywords: siteMetaData.keywords,
+  language: siteMetaData.language,
+  openGraph: {
+    type: "website",
+    locale: siteMetaData.locale,
+    url: siteMetaData.siteUrl,
+    title: siteMetaData.title,
+    description: siteMetaData.description,
+    image: siteMetaData.socialBanner,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  appLinks: {
+    web: siteMetaData.siteUrl,
+  },
+  author: {
+    name: siteMetaData.author,
+    email: siteMetaData.email,
+  },
+  social: {
+    instagram: siteMetaData.instagram,
+    linkedin: siteMetaData.linkedin,
+    github: siteMetaData.github,
+  },
+  creator: {
+    name: siteMetaData.author,
+    email: siteMetaData.email,
+  },
+  theme: siteMetaData.theme,
+  favicon: siteMetaData.favicon,
+  publisher: {
+    name: siteMetaData.author,
+    logo: {
+      url: siteMetaData.siteLogo,
+      width: "60",
+      height: "60",
+    },
+  },
+  applicationName: siteMetaData.title,
+  canonical: siteMetaData.siteUrl,
+  
+
 };
 
 export default function RootLayout({
