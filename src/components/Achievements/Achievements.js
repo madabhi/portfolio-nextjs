@@ -69,30 +69,28 @@ const Acheivements = () => {
       );
     }
     return achievements.map((project, key) => (
-      <div className=" col-span-2" key={key}>
-        <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex  ">
+      <div className="col-span-2 md:col-span-1 " key={key}>
+        <div className="border-2 border-black h-full rounded-[30px] relative  bg-light flex ">
           <div className=" h-full rounded-[30px] bg-black -z-10 top-3 absolute w-full left-3"></div>
-          <div className="flex  flex-col md:flex-row   w-full h-full  p-5 ">
-            <div className=" md:justify-center flex md:w-1/2 ">
-              <motion.div className="w-full ">
-                <MotionImage
-                  src={project.image}
-                  object-fit="cover"
-                  className="rounded-lg border-2 border-black !relative w-full h-full"
-                  style={{ aspectRatio: "16/9" }}
-                  fill={true}
-                  whileHover={{
-                    scale: 1.01,
-                    transition: { duration: 0.2 },
-                  }}
-                />
-              </motion.div>
+          <div className="flex   flex-col   w-full h-full  p-5">
+            <div className="relative  bg-light">
+              <MotionImage
+                src={project.image}
+                object-fit="cover"
+                className="rounded-lg border-2 border-black !relative w-full h-full"
+                style={{ aspectRatio: "16/9" }}
+                fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                alt={project.title}
+                whileHover={{
+                  scale: 1.01,
+                  transition: { duration: 0.2 },
+                }}
+              />
             </div>
-            <div className="h-full md:w-1/2 flex flex-col gap-2 md:pl-4 justify-center mt-4 md:mt-0">
-              <h1 className="text-2xl font-bold heading-clamp">
-                {project.title}
-              </h1>
-              <p className="text-sm">{project.description}</p>
+            <div className="pl-1 flex flex-col gap-1 ">
+              <h1 className="text-xl md:text-2xl font-bold">{project.title}</h1>
+              <p className="">{project.description}</p>
               {project.isAchievement ? (
                 <div className="flex justify-start items-center"></div>
               ) : (

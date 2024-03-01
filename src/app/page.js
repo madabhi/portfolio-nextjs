@@ -10,6 +10,11 @@ const mont = Montserrat({
   subsets: ["latin"],
   variable: "--font-mont",
 });
+export const metadata = {
+  title: "Abhinav Singh",
+  description:
+    "I'm Abhinav Singh, a dynamic computer science student on a thrilling digital journey. Originating from Bhopal, Madhya Pradesh, I'm currently immersed in the world of B.Tech at SISTec. Let me take you through the exciting chapters of my tech adventure!",
+};
 
 export default function Home() {
   return (
