@@ -7,7 +7,7 @@ export const siteMetaData = {
     "Abhinav Singh, Abhinav Singh SISTec, Abhinav Singh Bhopal, Abhinav Singh Gandhidham, SISTec, Bhopal, Sagar Institute of Science and Technology, Blogs, Abhinav Singh Student, alphaabhi.in, madabhi",
   headerTitle: "Abhinav Singh",
   language: "en-in",
-  siteUrl: "https://imabhinavsingh.vercel.app",
+  siteUrl: "https://imabhinav.dev",
   email: "abhinavas430@gmail.com",
   github: "https://github.com/madabhi",
   linkedin: "https://linkedin.com/in/madabhi",

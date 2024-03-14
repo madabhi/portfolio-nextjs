@@ -1,27 +1,27 @@
 export default function sitemap() {
   return [
     {
-      url: "https://imabhinavsingh.vercel.app/",
+      url: "https://imabhinav.dev/",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://imabhinavsingh.vercel.app/about",
+      url: "https://imabhinav.dev/about",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://imabhinavsingh.vercel.app/blog",
+      url: "https://imabhinav.dev/blog",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 0.5,
     },
     {
-      url: "https://imabhinavsingh.vercel.app/projects-achievements",
+      url: "https://imabhinav.dev/projects-achievements",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "monthly",
       priority: 0.5,
     },
   ];

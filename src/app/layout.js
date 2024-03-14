@@ -12,7 +12,10 @@ export const metadata = {
     default: siteMetaData.title,
     template: `%s | ${siteMetaData.title}`,
   },
-  description: siteMetaData.description,
+  description: {
+    default: siteMetaData.description,
+    template: `%s`,
+  },
   keywords: siteMetaData.keywords,
   language: siteMetaData.language,
   openGraph: {
