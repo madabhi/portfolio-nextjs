@@ -7,7 +7,6 @@ export async function generateMetadata({ params }) {
   const product = await fetch(`${process.env.SITE_URL}/api/post?id=${id}`).then(
     (res) => res.json()
   );
-  data = product;
 
   const truncatedContent =
     product.content.length > 170
