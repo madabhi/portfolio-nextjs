@@ -1,6 +1,6 @@
 import BlogById from "@/components/BlogById/BlogById";
 import React from "react";
-
+import { siteMetaData } from "@/utils/siteMetaData";
 export async function generateMetadata({ params }) {
   const id = params.id;
   console.log(id);
@@ -16,6 +16,14 @@ export async function generateMetadata({ params }) {
   return {
     title: product.title,
     description: truncatedContent, // Use truncated content
+    openGraph: {
+      type: "website",
+      locale: siteMetaData.locale,
+      url: siteMetaData.siteUrl,
+      title: siteMetaData.title,
+      description: truncatedContent,
+      image: siteMetaData.socialBanner,
+    },
   };
 }
 
