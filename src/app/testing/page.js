@@ -27,8 +27,6 @@ const ReadmeViewer = () => {
 
   return (
     <div>
-      <h1>README Viewer</h1>
-      {/* <div dangerouslySetInnerHTML={{ __html: readmeContent }} /> */}
       <Markdown remarkPlugins={[remarkGfm]} className="prose mb-8 ">
         {readmeContent}
       </Markdown>
