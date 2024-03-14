@@ -23,7 +23,10 @@ export const metadata = {
     locale: siteMetaData.locale,
     url: siteMetaData.siteUrl,
     title: siteMetaData.title,
-    description: siteMetaData.description,
+    description: {
+      default: siteMetaData.description,
+      template: `%s`,
+    },
     image: siteMetaData.socialBanner,
   },
   robots: {
