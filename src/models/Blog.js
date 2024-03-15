@@ -5,7 +5,7 @@ const Blog = new Schema({
   tag: { type: String, required: true },
   content: { type: String, required: true },
   date: { type: Date, required: true },
-  likes: { type: Number },
+  likes: { type: Number, default: 0 },
 });
 
 export default mongoose.models.Blog || mongoose.model("Blog", Blog);
