@@ -73,7 +73,6 @@ const WriteBlog = ({ params }) => {
           content: markdown,
         }),
       });
-      console.log(response);
       if (response.ok) {
         if (response.status === 200) {
           successNotify();

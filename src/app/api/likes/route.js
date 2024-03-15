@@ -2,13 +2,13 @@ import Blog from "@/models/Blog";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  const { id } = await req.json();
+  const { blogId } = await req.json();
 
   try {
-    const blog = await Blog.findOne({ blogId: id });
+    const blog = await Blog.findOne({ _id: blogId });
 
     if (!blog) {
-      return NextResponse.error(error.message);
+      return NextResponse.error("Error");
     }
 
     blog.likes += 1;
@@ -23,9 +23,9 @@ export async function POST(req) {
 
 export async function DELETE(req) {
   // decrement likes form Blog Model.
-  const { id } = await req.json();
+  const { blogId } = await req.json();
   try {
-    const blog = await Blog.findOne({ blogId: id });
+    const blog = await Blog.findOne({ _id: blogId });
 
     if (!blog) {
       return NextResponse.error("Error");

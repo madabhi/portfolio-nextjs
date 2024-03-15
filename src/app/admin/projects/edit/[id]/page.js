@@ -102,7 +102,6 @@ const AddProject = ({ params }) => {
         });
 
         if (response.success) {
-          console.log("success");
         }
 
         const data = await response.json();

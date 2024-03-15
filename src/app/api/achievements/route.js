@@ -30,17 +30,13 @@ export async function POST(req) {
   const imageName = `${achievement_id}-${image.name.split(" ").join("-")}`;
   const storageRef = ref(storage, imageName);
   const uploadTask = await uploadBytes(storageRef, buffer).then((snapshot) => {
-    console.log("Uploaded a blob or file!");
-    console.log("Snap Shot:    " + snapshot);
   });
   let projectImage = process.env.DEFAULT_PROJECT_IMAGE;
   const gsReference = ref(storage, storageRef);
   const imageRef = storageRef;
   await getDownloadURL(gsReference)
     .then((url) => {
-      console.log("Download URL:", url);
       projectImage = url;
-      console.log("url:    " + url);
     })
     .catch((error) => {
       console.error("Error getting download URL:", error);
@@ -79,7 +75,6 @@ export async function GET(req) {
       const resp = await AchievementModel.find().sort({
         date: -1,
       });
-      console.log(resp);
       return NextResponse.json(resp, { status: 200 });
     } catch (error) {
       console.error(error);
@@ -114,7 +109,6 @@ export async function GET(req) {
 // ------------------PUT METHOD ------------------
 export async function PUT(req) {
   const { title, description, dbId } = await req.json();
-  console.log(dbId);
   try {
     await connect();
     let date = new Date();
@@ -168,7 +162,6 @@ export async function DELETE(req) {
     // Delete the file
     deleteObject(desertRef)
       .then(() => {
-        console.log("File Deleted");
       })
       .catch((error) => {});
 

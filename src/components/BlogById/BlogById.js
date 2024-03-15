@@ -18,6 +18,7 @@ const BlogById = ({ id }) => {
   const [tag, setTag] = useState("");
   const [formattedDate, setFormattedDate] = useState("");
   const [isLiked, setisLiked] = useState(false);
+  const [blogId, setblogId] = useState("");
   const [noOfLikes, setnoOfLikes] = useState(0);
   // const id = id;
 
@@ -36,6 +37,7 @@ const BlogById = ({ id }) => {
         setTitle(blog.title);
         setTag(blog.tag);
         setnoOfLikes(blog.likes);
+        setblogId(blog._id);
         const dateObject = new Date(blog.date);
         const options = { day: "2-digit", month: "short", year: "numeric" };
         setFormattedDate(dateObject.toLocaleDateString("en-IN", options));
@@ -60,7 +62,7 @@ const BlogById = ({ id }) => {
       if (!isLiked) {
         response = await fetch(`/api/likes`, {
           method: "POST", // Corrected: Method should be a string
-          body: JSON.stringify({ id }), // Corrected: Body should be stringified JSON
+          body: JSON.stringify({ blogId }), // Corrected: Body should be stringified JSON
           headers: {
             "Content-Type": "application/json", // Specify JSON content type
           },
@@ -69,7 +71,7 @@ const BlogById = ({ id }) => {
       } else {
         response = await fetch(`/api/likes/`, {
           method: "DELETE",
-          body: JSON.stringify({ id }),
+          body: JSON.stringify({ blogId }),
         });
         setnoOfLikes(noOfLikes - 1);
       }

@@ -18,8 +18,6 @@ export async function POST(req) {
   const gitHubLink = data.get("gitHubLink");
   const isFeatured = data.get("isFeatured");
   const image = data.get("image");
-  console.log(data);
-  console.log(isFeatured);
   NextResponse.json({ status: 200, isFeatured });
   let date = new Date();
   let projectId = title.replace(/\s/g, "-").toLowerCase();
@@ -34,18 +32,14 @@ export async function POST(req) {
   const imageName = `${projectId}-${image.name.split(" ").join("-")}`;
   const storageRef = ref(storage, imageName);
   const uploadTask = await uploadBytes(storageRef, buffer).then((snapshot) => {
-    console.log("Uploaded a blob or file!");
-    console.log("Snap Shot:    " + snapshot);
   });
   let projectImage = process.env.DEFAULT_PROJECT_IMAGE;
   const gsReference = ref(storage, storageRef);
   const imageRef = storageRef;
   await getDownloadURL(gsReference)
     .then((url) => {
-      console.log("Download URL:", url);
       projectImage = url;
       // Now you can use this URL to access the file, for example, to display an image in an HTML element
-      console.log("url:    " + url);
     })
     .catch((error) => {
       // Handle any errors
@@ -75,7 +69,6 @@ export async function POST(req) {
 
       deleteObject(desertRef)
         .then(() => {
-          console.log("File Deleted");
         })
         .catch((error) => {});
 
@@ -90,7 +83,6 @@ export async function POST(req) {
 
     deleteObject(desertRef)
       .then(() => {
-        console.log("File Deleted");
       })
       .catch((error) => {});
 

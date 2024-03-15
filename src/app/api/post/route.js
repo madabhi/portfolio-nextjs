@@ -4,14 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req) {
   const id = req.nextUrl.searchParams.get("id");
-  console.log("Server side id: " + id)
 
   try {
     await connect();
     const blog = await Blog.findOne({ blogId: id });
 
     if (!blog) {
-      console.log("Printing blog: " + blog);
       return NextResponse.json(
         { error: "Internal Server Error" },
         { status: 500 }

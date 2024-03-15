@@ -9,7 +9,6 @@ async function connect() {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  // console.log(msg);
 }
 
 export default connect;

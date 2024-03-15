@@ -41,7 +41,6 @@ const EditAchievement = () => {
         });
 
         if (response.success) {
-          console.log("success");
         }
 
         const data = await response.json();

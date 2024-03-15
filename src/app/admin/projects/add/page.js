@@ -29,11 +29,9 @@ const AddProject = () => {
 
       formData.append("title", title);
       formData.append("description", description);
-      console.log(isFeatured, category, gitHubLink);
       formData.append("category", category);
       formData.append("gitHubLink", gitHubLink);
       formData.append("isFeatured", isFeatured);
-      console.log(formData);
 
       let fetchUrl = "/api/projects";
 
@@ -45,7 +43,6 @@ const AddProject = () => {
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
-      console.log(response);
       loadingNotify();
       setTitle("");
       setDescription("");
@@ -117,7 +114,6 @@ const AddProject = () => {
                   name="category"
                   type="text"
                   onChange={(e) => {
-                    console.log(category);
                     setCategory(e.target.value);
                   }}
                 />

@@ -50,7 +50,6 @@ const Acheivements = () => {
           setProjects(data);
           setAchievements(data);
         }
-        console.log(data);
         setLoading(false);
       } catch (error) {
         setError(error.message);

@@ -13,7 +13,6 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
     const login = async () => {
       try {
         const response = await fetch("/api/user/login", {
@@ -24,9 +23,7 @@ const Login = () => {
           body: JSON.stringify({ email, password }),
         });
         const data = await response.json();
-        console.log(data);
         if (response.ok) {
-          console.log("success");
           if (data.success) {
             notify();
 
@@ -34,7 +31,6 @@ const Login = () => {
               router.push("/admin");
             }, 1000);
           } else {
-            console.log("Notify Failed Running");
             notifyFailed();
           }
         }
