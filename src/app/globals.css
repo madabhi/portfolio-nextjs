@@ -15,3 +15,20 @@
 .heading-clamp {
     -webkit-line-clamp: 2;
 }
+
+code {
+    font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+    line-height: normal;
+    background: aliceblue;
+    color: red;
+    border-radius: 4px;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+    font-weight: 800;
+}
+
+code::before,
+code::after {
+    content: none;
+    display: none;
+}
