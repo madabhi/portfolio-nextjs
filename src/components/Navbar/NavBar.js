@@ -6,6 +6,7 @@ import {
   InstaIcon,
   GithubIcon,
   LinkedinIcon,
+  YoutubeIcon,
 } from "../../components/Icons/Icons";
 
 const NavBar = () => {
@@ -103,6 +104,16 @@ const NavBar = () => {
             })}
           </ul>
           <div className="flex justify-center items-center gap-x-4 mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
+            <motion.a
+              href="https://youtube.com/@loveforlogic"
+              target={"_blank"}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.8 }}
+              className=" w-8  "
+            >
+              {" "}
+              <YoutubeIcon className="md:mt-0 mt-6" />
+            </motion.a>
             <motion.a
               href="https://instagram.com/alphaabhi.in"
               target={"_blank"}
