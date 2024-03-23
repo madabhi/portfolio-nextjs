@@ -14,6 +14,16 @@ export const metadata = {
   title: "Abhinav Singh",
   description:
     "I'm Abhinav Singh, a dynamic computer science student on a thrilling digital journey. Originating from Bhopal, Madhya Pradesh, I'm currently immersed in the world of B.Tech at SISTec. Let me take you through the exciting chapters of my tech adventure!",
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://imabhinav.dev",
+    title: "Abhinav Singh",
+    description:
+      "I'm Abhinav Singh, a dynamic computer science student on a thrilling digital journey. Originating from Bhopal, Madhya Pradesh, I'm currently immersed in the world of B.Tech at SISTec. Let me take you through the exciting chapters of my tech adventure!",
+    image: "/images//metadata/socialBanner.png",
+  },
 };
 
 export default function Home() {

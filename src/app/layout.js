@@ -53,20 +53,10 @@ export const metadata = {
     linkedin: siteMetaData.linkedin,
     github: siteMetaData.github,
   },
-  creator: {
-    name: siteMetaData.author,
-    email: siteMetaData.email,
-  },
+  creator: "Abhinav Singh",
   theme: siteMetaData.theme,
   favicon: siteMetaData.favicon,
-  publisher: {
-    name: siteMetaData.author,
-    logo: {
-      url: siteMetaData.siteLogo,
-      width: "60",
-      height: "60",
-    },
-  },
+  publisher: "Abhinav Singh",
   applicationName: siteMetaData.title,
   canonical: siteMetaData.siteUrl,
 };
