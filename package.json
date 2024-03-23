@@ -11,6 +11,7 @@
   "dependencies": {
     "@azure/identity": "^4.0.0",
     "@azure/storage-blob": "^12.17.0",
+    "@next/third-parties": "^14.1.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@uiw/react-markdown-editor": "^6.0.0",
     "bcryptjs": "^2.4.3",
@@ -21,7 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "marked": "^11.1.0",
     "mongoose": "^8.1.1",
-    "next": "^14.0.4",
+    "next": "^14.1.4",
     "next-auth": "^4.24.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

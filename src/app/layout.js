@@ -4,6 +4,7 @@ import NavBar from "@/components/Navbar/NavBar";
 import Footer from "@/components/Footer";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { siteMetaData } from "@/utils/siteMetaData";
+import { GoogleAnalytics } from "@next/third-parties/google";
 const mont = Montserrat({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
@@ -80,20 +81,12 @@ export default function RootLayout({
       <body
         className={`flex max-w-screen-xl md:mx-auto flex-col min-h-screen justify-between  ${mont.className}`}
       >
+        <GoogleAnalytics gaId="G-T1J87S39TL" />
         <SkeletonTheme color="##f0eded" highlightColor="#dedcde">
           <NavBar />
           <div className="flex-grow">{children}</div>
           <Footer />
         </SkeletonTheme>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-T1J87S39TL"
-        ></script>
-        <script defer>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-T1J87S39TL');
-        </script>
       </body>
     </html>
   );
