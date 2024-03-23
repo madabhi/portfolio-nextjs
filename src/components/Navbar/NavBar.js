@@ -105,7 +105,7 @@ const NavBar = () => {
           </ul>
           <div className="flex justify-center items-center gap-x-4 mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
             <motion.a
-              href="https://youtube.com/@loveforlogic"
+              href="https://youtube.com/@loveforlogicw"
               target={"_blank"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.8 }}
@@ -122,7 +122,7 @@ const NavBar = () => {
               className=" w-8  "
             >
               {" "}
-              <InstaIcon className="md:mt-0 mt-6" />
+              <InstaIcon className="md:mt-0 " />
             </motion.a>
             <motion.a
               href="https://github.com/madabhi"
