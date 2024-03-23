@@ -105,7 +105,7 @@ const NavBar = () => {
           </ul>
           <div className="flex justify-center items-center gap-x-4 mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
             <motion.a
-              href="https://youtube.com/@loveforlogicw"
+              href="https://youtube.com/@loveforlogic"
               target={"_blank"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.8 }}
