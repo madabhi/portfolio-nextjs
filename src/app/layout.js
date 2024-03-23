@@ -85,6 +85,15 @@ export default function RootLayout({
           <div className="flex-grow">{children}</div>
           <Footer />
         </SkeletonTheme>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-T1J87S39TL"
+        ></script>
+        <script defer>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-T1J87S39TL');
+        </script>
       </body>
     </html>
   );
