@@ -39,7 +39,7 @@ const NavBar = () => {
       <div className="gap-x-14 items-center  mx-auto px-4 md:flex md:px-0">
         <div className="flex items-center justify-between py-5 md:block">
           <Link href="/">
-            <h1 className="font-bold text-2xl">Abhinav</h1>
+            <h1 className="font-bold text-3xl">Abhinav Singh</h1>
           </Link>
           <div className="md:hidden">
             <button
@@ -92,7 +92,7 @@ const NavBar = () => {
                 >
                   <Link
                     href={item.path}
-                    className="block hover:text-blue-600 transition duration-150 ease-in-out"
+                    className="block hover:text-blue-600 transition duration-150 ease-in-out text-[15px]"
                     onClick={() => {
                       setState(false);
                     }}
