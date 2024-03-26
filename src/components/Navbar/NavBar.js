@@ -115,7 +115,7 @@ const NavBar = () => {
               <YoutubeIcon className="md:mt-0 mt-6" />
             </motion.a>
             <motion.a
-              href="https://instagram.com/alphaabhi.in"
+              href="https://instagram.com/imabhinav.dev"
               target={"_blank"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.8 }}
