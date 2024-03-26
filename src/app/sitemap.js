@@ -10,19 +10,25 @@ export default function sitemap() {
       url: "https://imabhinav.dev/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 1,
     },
     {
       url: "https://imabhinav.dev/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.5,
+      priority: 1,
     },
     {
-      url: "https://imabhinav.dev/projects-achievements",
+      url: "https://imabhinav.dev/projects",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 1,
+    },
+    {
+      url: "https://imabhinav.dev/achievements",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
     },
   ];
 }
